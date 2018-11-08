@@ -19,7 +19,7 @@ import java.util.Arrays;
 public class Example {
 
     // The token that the bot will use.
-    private static final String TOKEN = "NDMyNTc1MTM2MzMyNTEzMzI1.DavTGg.YAHPlQMAwRZtTHOVdfoEwyqC-bU";
+    private static final String TOKEN = "NDY5NjM5MDA0MDc4MjExMDcy.DsXc0Q.1yfBO_ENQGZE0tpA1Ep4thzKrkA";
     // The prefix that the bot will use.
     private static final String PREFIX = "!";
 
