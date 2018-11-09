@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class Example {
+public class CollinBotApplication {
 
     // The token that the bot will use.
     private static final String TOKEN = "NDY5NjM5MDA0MDc4MjExMDcy.DsXc0Q.1yfBO_ENQGZE0tpA1Ep4thzKrkA";
@@ -28,7 +28,7 @@ public class Example {
     public static void main(String[] args) throws DiscordException, RateLimitException {
         System.out.println("Logging bot in...");
         client = new ClientBuilder().withToken(TOKEN).build();
-        client.getDispatcher().registerListener(new Example());
+        client.getDispatcher().registerListener(new CollinBotApplication());
         client.login();
     }
 

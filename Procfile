@@ -1,1 +1,0 @@
-web: java -jar build/libs/CollinBot-1.0.jar
