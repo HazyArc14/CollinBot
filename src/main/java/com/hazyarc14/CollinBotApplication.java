@@ -1,5 +1,10 @@
 package com.hazyarc14;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.io.ClassPathResource;
 import sx.blah.discord.api.ClientBuilder;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.api.events.EventSubscriber;
@@ -13,10 +18,14 @@ import sx.blah.discord.util.audio.events.TrackFinishEvent;
 
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 
+@SpringBootApplication
 public class CollinBotApplication {
+
+    private static final Logger log = LoggerFactory.getLogger(CollinBotApplication.class);
 
     // The token that the bot will use.
     private static final String TOKEN = "NDY5NjM5MDA0MDc4MjExMDcy.DsXc0Q.1yfBO_ENQGZE0tpA1Ep4thzKrkA";
@@ -30,6 +39,7 @@ public class CollinBotApplication {
         client = new ClientBuilder().withToken(TOKEN).build();
         client.getDispatcher().registerListener(new CollinBotApplication());
         client.login();
+        SpringApplication.run(CollinBotApplication.class, args);
     }
 
     @EventSubscriber
@@ -70,8 +80,17 @@ public class CollinBotApplication {
                     join(voiceChannel);
                 }
 
-                if (alias.equalsIgnoreCase("aram")) {
-                    queueFile(channel, new File("audio/aram.mp3"));
+                try {
+
+                    if (alias.equalsIgnoreCase("aram")) {
+                        message.delete();
+                        ClassPathResource audioFile = new ClassPathResource("audio/aram.mp3");
+                        queueFile(channel, audioFile.getFile());
+                    }
+
+                } catch (FileNotFoundException e) {
+                    log.error("Error with finding the file :: ", e);
+                    leave(voiceChannel);
                 }
 
             }
@@ -81,6 +100,10 @@ public class CollinBotApplication {
 
     private void join(IVoiceChannel voiceChannel) throws RateLimitException, DiscordException, MissingPermissionsException {
         voiceChannel.join();
+    }
+
+    private void leave(IVoiceChannel voiceChannel) throws RateLimitException, DiscordException, MissingPermissionsException {
+        voiceChannel.leave();
     }
 
     private void queueFile(IChannel channel, File file) throws RateLimitException, DiscordException,
