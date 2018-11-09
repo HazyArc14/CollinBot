@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import sx.blah.discord.api.ClientBuilder;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.api.events.EventSubscriber;
@@ -33,6 +35,7 @@ public class CollinBotApplication {
     private static final String PREFIX = "!";
 
     private static IDiscordClient client;
+    private ResourceLoader resourceLoader;
 
     public static void main(String[] args) throws DiscordException, RateLimitException {
         System.out.println("Logging bot in...");
@@ -84,8 +87,8 @@ public class CollinBotApplication {
 
                     if (alias.equalsIgnoreCase("aram")) {
                         message.delete();
-                        ClassPathResource audioFile = new ClassPathResource("audio/aram.mp3");
-                        queueFile(channel, audioFile.getFile());
+                        Resource resource = resourceLoader.getResource("classpath:audio/aram.mp3");
+                        queueFile(channel, resource.getFile());
                     }
 
                 } catch (FileNotFoundException e) {
