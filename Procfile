@@ -1,1 +1,1 @@
-web: java -Dserver.port=5000 $JAVA_OPTS -jar build/libs/CollinBot-1.0.0-all.jar
+worker: java $JAVA_OPTS -Dserver.port=$PORT -jar build/libs/CollinBot-1.0.0-all.jar
