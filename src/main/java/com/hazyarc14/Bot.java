@@ -18,6 +18,7 @@ import net.dv8tion.jda.core.managers.AudioManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -74,13 +75,129 @@ public class Bot extends ListenerAdapter {
                 voiceChannel = event.getMember().getVoiceState().getChannel();
             }
 
+            if ("!help".equalsIgnoreCase(command[0])) {
+                event.getMessage().delete().queue();
+                guild.getDefaultChannel().sendMessage("```" +
+                        "Since Your Little Bitch Ass Can't Remember Shit!\n\n" +
+                        "Audio Triggers:\n" +
+                        "!arams\n" +
+                        "!celsoHere\n" +
+                        "!clap\n" +
+                        "!croissant\n" +
+                        "!dumbassGame\n" +
+                        "!fortFucker\n" +
+                        "!goldfish\n" +
+                        "!horn\n" +
+                        "!horse\n" +
+                        "!kirk\n" +
+                        "!lag\n" +
+                        "!licker\n" +
+                        "!magicResit\n" +
+                        "!monkey\n" +
+                        "!sameGame\n" +
+                        "!snap\n" +
+                        "!tinsel\n" +
+                        "!warus\n" +
+                        "!watch\n" +
+                        "!weeee\n" +
+                        "!yooo" +
+                        "```")
+                        .queue();
+
+            }
+
             if (voiceChannel != null) {
-                if ("!clap".equalsIgnoreCase(command[0])) {
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/Collin_Bot_v1/master/assets/audio/clap.mp3");
+
+                if ("!arams".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/arams.mp3");
                 }
+                if ("!celsoHere".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/celsoHere.mp3");
+                }
+                if ("!clap".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/clap.mp3");
+                }
+                if ("!croissant".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/croissant.mp3");
+                }
+                if ("!dumbassGame".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/dumbassGame.mp3");
+                }
+                if ("!fortFucker".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/fortFucker.mp3");
+                }
+                if ("!goldfish".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/goldfish.mp3");
+                }
+                if ("!horn".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/horn.mp3");
+                }
+                if ("!horse".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/horse.mp3");
+                }
+                if ("!kirk".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/kirk.mp3");
+                }
+                if ("!lag".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/lag.mp3");
+                }
+                if ("!licker".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/licker.mp3");
+                }
+                if ("!magicResist".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/magicResist.mp3");
+                }
+                if ("!monkey".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/monkey.mp3");
+                }
+                if ("!sameGame".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/sameGame.mp3");
+                }
+                if ("!snap".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/snap.mp3");
+                }
+                if ("!tinsel".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/tinsel.mp3");
+                }
+                if ("!warus".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/warus.mp3");
+                }
+                if ("!watch".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/watch.mp3");
+                }
+                if ("!weeee".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/weeee.mp3");
+                }
+                if ("!yooo".equalsIgnoreCase(command[0])) {
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/yooo.mp3");
+                }
+                
                 if ("~play".equals(command[0]) && command.length == 2) {
+                    event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, command[1]);
                 } else if ("~skip".equals(command[0])) {
+                    event.getMessage().delete().queue();
                     skipTrack(event.getTextChannel());
                 }
             }
