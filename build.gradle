@@ -27,3 +27,4 @@ dependencies {
 compileJava.options.encoding = 'UTF-8'
 
 task stage(dependsOn: ['shadowJar', 'clean'])
+shadowJar.mustRunAfter clean
