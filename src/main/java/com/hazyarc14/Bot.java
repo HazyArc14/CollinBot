@@ -63,9 +63,9 @@ public class Bot extends ListenerAdapter {
 
         if (guild != null) {
 
-            if (command.length == 2) {
+            if (command.length == 2 && command[1].startsWith("#")) {
                 try {
-                    voiceChannel = event.getGuild().getVoiceChannelById(command[1]);
+                    voiceChannel = event.getGuild().getVoiceChannelById(command[1].substring(1));
                 } catch (Exception e) {
                     log.error("Could not get voice channel by id " + command[1] + " :: ", e);
                 }
