@@ -199,6 +199,8 @@ public class Bot extends ListenerAdapter {
                 } else if ("~skip".equals(command[0])) {
                     event.getMessage().delete().queue();
                     skipTrack(event.getTextChannel());
+                } else if ("~leave".equals(command[0])) {
+                    guild.getAudioManager().closeAudioConnection();
                 }
             }
         }
