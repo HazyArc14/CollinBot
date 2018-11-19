@@ -6,6 +6,7 @@ plugins {
 
 mainClassName = 'com.hazyarc14.Bot'
 
+group 'com.hazyarc14'
 version '1.0.0'
 
 def jdaVersion = '3.8.1_445'
@@ -24,3 +25,5 @@ dependencies {
 }
 
 compileJava.options.encoding = 'UTF-8'
+
+task stage(dependsOn: ['shadowJar', 'clean'])
