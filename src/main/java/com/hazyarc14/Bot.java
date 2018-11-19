@@ -251,7 +251,7 @@ public class Bot extends ListenerAdapter {
         GuildMusicManager musicManager = getGuildAudioPlayer(channel.getGuild());
         musicManager.scheduler.nextTrack();
 
-        channel.sendMessage("Skipped to next track.").queue();
+//        channel.sendMessage("Skipped to next track.").queue();
     }
 
     private static void connectVoiceChannel(AudioManager audioManager, VoiceChannel voiceChannel) {
