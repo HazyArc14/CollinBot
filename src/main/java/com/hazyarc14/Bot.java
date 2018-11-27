@@ -84,6 +84,7 @@ public class Bot extends ListenerAdapter {
                         "!celsoHere\n" +
                         "!clap\n" +
                         "!croissant\n" +
+                        "!dickHer\n" +
                         "!dumbassGame\n" +
                         "!fortFucker\n" +
                         "!goldfish\n" +
@@ -133,11 +134,16 @@ public class Bot extends ListenerAdapter {
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/croissant.mp3");
                 }
-                if ("!dog".equalsIgnoreCase(command[0]) && event.getAuthor().getId() == "93121331700195328") {
-                    log.info("User: " + event.getAuthor().getName() + " Command: !dog");
+                if ("!dickHer".equalsIgnoreCase(command[0])) {
+                    log.info("User: " + event.getAuthor().getName() + " Command: !dickHer");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/dog.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/dickHer.mp3");
                 }
+//                if ("!dog".equalsIgnoreCase(command[0])) {
+//                    log.info("User: " + event.getAuthor().getName() + " Command: !dog");
+//                    event.getMessage().delete().queue();
+//                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/dog.mp3");
+//                }
                 if ("!dumbassGame".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !dumbassGame");
                     event.getMessage().delete().queue();
