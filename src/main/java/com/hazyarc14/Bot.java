@@ -25,7 +25,7 @@ public class Bot extends ListenerAdapter {
     public static final Logger log = LoggerFactory.getLogger(Bot.class);
 
     public static void main(String[] args) throws Exception {
-        JDA jda = new JDABuilder("NDY5NjM5MDA0MDc4MjExMDcy.DsXc0Q.1yfBO_ENQGZE0tpA1Ep4thzKrkA").build();
+        JDA jda = new JDABuilder(System.getenv("BOT_TOKEN")).build();
         jda.addEventListener(new Bot());
     }
 
