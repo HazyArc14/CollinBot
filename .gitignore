@@ -30,6 +30,8 @@ target/
 *.iws
 *.ipr
 .idea/
+.idea/*
+.gradle/*
 
 # eclipse project file
 .settings/
