@@ -61,7 +61,6 @@ public class Bot extends ListenerAdapter {
         VoiceChannel voiceChannel = null;
 
         log.info("AuthorID: " + event.getAuthor().getId());
-        log.info("UserID: " + event.getMember().getUser().getId());
 
         if (guild != null) {
 
@@ -178,7 +177,7 @@ public class Bot extends ListenerAdapter {
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/lag.mp3");
                 }
-                if ("!licker".equalsIgnoreCase(command[0])) {
+                if (event.getAuthor().getIdLong() != 148630426548699136L && "!licker".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !licker");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/licker.mp3");
@@ -193,7 +192,7 @@ public class Bot extends ListenerAdapter {
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/monkey.mp3");
                 }
-                if ("!ripDoggo".equalsIgnoreCase(command[0]) && event.getAuthor().getId() != "148630426548699136") {
+                if (event.getAuthor().getIdLong() != 148630426548699136L && "!ripDoggo".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !ripDoggo");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/ripDoggo.mp3");
