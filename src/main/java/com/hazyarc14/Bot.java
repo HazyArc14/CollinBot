@@ -95,6 +95,7 @@ public class Bot extends ListenerAdapter {
                         "!licker\n" +
                         "!magicResit\n" +
                         "!monkey\n" +
+                        "!ripDoggo\n" +
                         "!sameGame\n" +
                         "!snap\n" +
                         "!tinsel\n" +
@@ -139,11 +140,6 @@ public class Bot extends ListenerAdapter {
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/dickHer.mp3");
                 }
-//                if ("!dog".equalsIgnoreCase(command[0])) {
-//                    log.info("User: " + event.getAuthor().getName() + " Command: !dog");
-//                    event.getMessage().delete().queue();
-//                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/dog.mp3");
-//                }
                 if ("!dumbassGame".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !dumbassGame");
                     event.getMessage().delete().queue();
@@ -193,6 +189,11 @@ public class Bot extends ListenerAdapter {
                     log.info("User: " + event.getAuthor().getName() + " Command: !monkey");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/monkey.mp3");
+                }
+                if ("!ripDoggo".equalsIgnoreCase(command[0])) {
+                    log.info("User: " + event.getAuthor().getName() + " Command: !ripDoggo");
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/ripDoggo.mp3");
                 }
                 if ("!sameGame".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !sameGame");
