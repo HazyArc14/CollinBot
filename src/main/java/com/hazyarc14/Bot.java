@@ -190,7 +190,7 @@ public class Bot extends ListenerAdapter {
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/monkey.mp3");
                 }
-                if ("!ripDoggo".equalsIgnoreCase(command[0]) && event.getAuthor().getId() != "93105200365043712") {
+                if ("!ripDoggo".equalsIgnoreCase(command[0]) && event.getAuthor().getId() != "148630426548699136") {
                     log.info("User: " + event.getAuthor().getName() + " Command: !ripDoggo");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/ripDoggo.mp3");
