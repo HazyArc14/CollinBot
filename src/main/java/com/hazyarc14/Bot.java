@@ -60,6 +60,9 @@ public class Bot extends ListenerAdapter {
         Guild guild = event.getGuild();
         VoiceChannel voiceChannel = null;
 
+        log.info("AuthorID: " + event.getAuthor().getId());
+        log.info("UserID: " + event.getMember().getUser().getId());
+
         if (guild != null) {
 
             if (command.length == 2 && command[1].startsWith("#")) {
