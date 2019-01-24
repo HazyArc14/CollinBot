@@ -88,6 +88,7 @@ public class Bot extends ListenerAdapter {
                         "!dumbassGame\n" +
                         "!fortFucker\n" +
                         "!goldfish\n" +
+                        "!homie\n" +
                         "!horn\n" +
                         "!horse\n" +
                         "!kirk\n" +
@@ -154,6 +155,11 @@ public class Bot extends ListenerAdapter {
                     log.info("User: " + event.getAuthor().getName() + " Command: !goldfish");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/goldfish.mp3");
+                }
+                if ("!homie".equalsIgnoreCase(command[0])) {
+                    log.info("User: " + event.getAuthor().getName() + " Command: !homie");
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/homie.mp3");
                 }
                 if ("!horn".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !horn");
