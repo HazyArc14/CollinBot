@@ -96,6 +96,7 @@ public class Bot extends ListenerAdapter {
                         "!licker\n" +
                         "!magicResit\n" +
                         "!monkey\n" +
+                        "!oil\n" +
                         "!ripDoggo\n" +
                         "!sameGame\n" +
                         "!snap\n" +
@@ -195,6 +196,11 @@ public class Bot extends ListenerAdapter {
                     log.info("User: " + event.getAuthor().getName() + " Command: !monkey");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/monkey.mp3");
+                }
+                if ("!oil".equalsIgnoreCase(command[0])) {
+                    log.info("User: " + event.getAuthor().getName() + " Command: !oil");
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/oil.mp3");
                 }
                 if (event.getAuthor().getIdLong() != 93140127949287424L && "!ripDoggo".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !ripDoggo");
