@@ -83,6 +83,7 @@ public class Bot extends ListenerAdapter {
                         "!boutTime\n" +
                         "!celsoHere\n" +
                         "!clap\n" +
+                        "!clickyBoi\n" +
                         "!croissant\n" +
                         "!dickHer\n" +
                         "!dumbassGame\n" +
@@ -131,6 +132,11 @@ public class Bot extends ListenerAdapter {
                     log.info("User: " + event.getAuthor().getName() + " Command: !arams");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/clap.mp3");
+                }
+                if ("!clickyBoi".equalsIgnoreCase(command[0])) {
+                    log.info("User: " + event.getAuthor().getName() + " Command: !arams");
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/clickyBoi.mp3");
                 }
                 if ("!croissant".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !croissant");
