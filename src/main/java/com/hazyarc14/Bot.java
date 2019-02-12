@@ -121,7 +121,7 @@ public class Bot extends ListenerAdapter {
             if (voiceChannel != null) {
 
                 if ("!ahhha".equalsIgnoreCase(command[0])) {
-                    log.info("User: " + event.getAuthor().getName() + " Command: !arams");
+                    log.info("User: " + event.getAuthor().getName() + " Command: !ahhha");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/ahhha.mp3");
                 }
