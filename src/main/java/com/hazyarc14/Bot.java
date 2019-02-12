@@ -62,9 +62,15 @@ public class Bot extends ListenerAdapter {
 
         if (guild != null) {
 
-            if (command.length == 2 && command[1].startsWith("#")) {
+            if (command[0] == "~play") {
                 try {
-                    voiceChannel = event.getGuild().getVoiceChannelById(command[1].substring(1));
+                    voiceChannel = event.getGuild().getVoiceChannelById(command[2]);
+                } catch (Exception e) {
+                    log.error("Could not get voice channel by id " + command[2] + " :: ", e);
+                }
+            } else if (command.length == 2) {
+                try {
+                    voiceChannel = event.getGuild().getVoiceChannelById(command[1]);
                 } catch (Exception e) {
                     log.error("Could not get voice channel by id " + command[1] + " :: ", e);
                 }
@@ -79,6 +85,7 @@ public class Bot extends ListenerAdapter {
                 guild.getDefaultChannel().sendMessage("```" +
                         "Since Your Little Bitch Ass Can't Remember Shit!\n\n" +
                         "Audio Triggers:\n" +
+                        "!ahhha\n" +
                         "!arams\n" +
                         "!boutTime\n" +
                         "!celsoHere\n" +
@@ -113,6 +120,11 @@ public class Bot extends ListenerAdapter {
 
             if (voiceChannel != null) {
 
+                if ("!ahhha".equalsIgnoreCase(command[0])) {
+                    log.info("User: " + event.getAuthor().getName() + " Command: !arams");
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/ahhha.mp3");
+                }
                 if ("!arams".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !arams");
                     event.getMessage().delete().queue();
