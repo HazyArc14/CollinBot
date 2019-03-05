@@ -265,7 +265,7 @@ public class Bot extends ListenerAdapter {
                 if ("!will".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !will");
                     event.getMessage().delete().queue();
-                    guild.getDefaultChannel().sendFile(new File("https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/willChimp.png")).queue();
+                    guild.getDefaultChannel().sendFile(new File("./images/willChimp.jpg")).queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/will.mp3");
                 }
                 if ("!yooo".equalsIgnoreCase(command[0])) {
