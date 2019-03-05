@@ -18,6 +18,7 @@ import net.dv8tion.jda.core.managers.AudioManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -112,6 +113,7 @@ public class Bot extends ListenerAdapter {
                         "!warus\n" +
                         "!watch\n" +
                         "!weeee\n" +
+                        "!will\n" +
                         "!yooo" +
                         "```")
                         .queue();
@@ -259,6 +261,12 @@ public class Bot extends ListenerAdapter {
                     log.info("User: " + event.getAuthor().getName() + " Command: !weeee");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/weeee.mp3");
+                }
+                if ("!will".equalsIgnoreCase(command[0])) {
+                    log.info("User: " + event.getAuthor().getName() + " Command: !will");
+                    event.getMessage().delete().queue();
+                    guild.getDefaultChannel().sendFile(new File("https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/willChimp.png")).queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/will.mp3");
                 }
                 if ("!yooo".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !yooo");
