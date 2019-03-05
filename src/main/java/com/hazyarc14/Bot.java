@@ -272,8 +272,8 @@ public class Bot extends ListenerAdapter {
                     BufferedImage bufferedImage = null;
                     File image = new File("willChimp.png");
                     try {
-                        bufferedImage = ImageIO.read(new URL("https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/willChimp.jpg"));
-                        ImageIO.write(bufferedImage, "jpg", image);
+                        bufferedImage = ImageIO.read(new URL("https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/willChimp.png"));
+                        ImageIO.write(bufferedImage, "png", image);
                     } catch (IOException e) {
                         log.error("Exception: ", e);
                     }
