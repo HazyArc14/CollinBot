@@ -108,7 +108,7 @@ public class Bot extends ListenerAdapter {
                         "!lag\n" +
                         "!licker\n" +
                         "!magicResit\n" +
-                        "!monkey\n" +
+                        "!monkeys\n" +
                         "!oil\n" +
                         "!ripDoggo\n" +
                         "!sameGame\n" +
@@ -117,7 +117,6 @@ public class Bot extends ListenerAdapter {
                         "!warus\n" +
                         "!watch\n" +
                         "!weeee\n" +
-                        "!will\n" +
                         "!yooo" +
                         "```")
                         .queue();
@@ -219,7 +218,21 @@ public class Bot extends ListenerAdapter {
                 if ("!monkey".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !monkey");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/monkey.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/monkeys.mp3");
+                }
+                if ("!monkeys".equalsIgnoreCase(command[0])) {
+                    log.info("User: " + event.getAuthor().getName() + " Command: !monkeys");
+                    event.getMessage().delete().queue();
+                    BufferedImage bufferedImage = null;
+                    File image = new File("monkeys.png");
+                    try {
+                        bufferedImage = ImageIO.read(new URL("https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/monkeys.png"));
+                        ImageIO.write(bufferedImage, "png", image);
+                    } catch (IOException e) {
+                        log.error("Exception: ", e);
+                    }
+                    guild.getDefaultChannel().sendFile(image).queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/monkeys.mp3");
                 }
                 if ("!oil".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !oil");
@@ -265,20 +278,6 @@ public class Bot extends ListenerAdapter {
                     log.info("User: " + event.getAuthor().getName() + " Command: !weeee");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/weeee.mp3");
-                }
-                if ("!will".equalsIgnoreCase(command[0])) {
-                    log.info("User: " + event.getAuthor().getName() + " Command: !will");
-                    event.getMessage().delete().queue();
-                    BufferedImage bufferedImage = null;
-                    File image = new File("willChimp.png");
-                    try {
-                        bufferedImage = ImageIO.read(new URL("https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/willChimp.png"));
-                        ImageIO.write(bufferedImage, "png", image);
-                    } catch (IOException e) {
-                        log.error("Exception: ", e);
-                    }
-                    guild.getDefaultChannel().sendFile(image).queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/will.mp3");
                 }
                 if ("!yooo".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !yooo");
