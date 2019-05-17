@@ -366,13 +366,11 @@ public class Bot extends ListenerAdapter {
         Long ckelsoId = new Long("93105200365043712");
         Long spitfire = new Long("93121331700195328");
         Long gopherit = new Long("93140127949287424");
-        Long test = new Long("148630426548699136");
 
         List<Long> userIdList = new ArrayList<>();
         userIdList.add(ckelsoId);
         userIdList.add(spitfire);
-//        userIdList.add(gopherit);
-        userIdList.add(test);
+        userIdList.add(gopherit);
 
         List<Member> currentVoiceChannelMembers = event.getChannelJoined().getMembers();
         List<Long> currentVoiceChannelMembersIdList = new ArrayList<>();
@@ -382,8 +380,7 @@ public class Bot extends ListenerAdapter {
         }
 
         if (currentVoiceChannelMembersIdList.containsAll(userIdList)) {
-//            guild.getDefaultChannel().sendMessage("Still Playing Dumbass Games!?").queue();
-            guild.getDefaultChannel().sendMessage("test").queue();
+            guild.getDefaultChannel().sendMessage("Still Playing Dumbass Games!?").queue();
         }
 
     }
