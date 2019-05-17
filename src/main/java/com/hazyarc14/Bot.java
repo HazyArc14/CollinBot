@@ -9,9 +9,8 @@ import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
-import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.VoiceChannel;
+import net.dv8tion.jda.core.entities.*;
+import net.dv8tion.jda.core.events.guild.voice.GuildVoiceJoinEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import net.dv8tion.jda.core.managers.AudioManager;
@@ -20,10 +19,13 @@ import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.awt.image.MemoryImageSource;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Bot extends ListenerAdapter {
@@ -354,5 +356,34 @@ public class Bot extends ListenerAdapter {
         if (!audioManager.isConnected() && !audioManager.isAttemptingToConnect()) {
             audioManager.openAudioConnection(voiceChannel);
         }
+    }
+
+    @Override
+    public void onGuildVoiceJoin(GuildVoiceJoinEvent event) {
+
+        Guild guild = event.getGuild();
+
+        Long ckelsoId = new Long("93105200365043712");
+        Long spitfire = new Long("93121331700195328");
+        Long gopherit = new Long("93140127949287424");
+        Long test = new Long("148630426548699136");
+
+        List<Long> userIdList = new ArrayList<>();
+        userIdList.add(ckelsoId);
+        userIdList.add(spitfire);
+//        userIdList.add(gopherit);
+        userIdList.add(test);
+
+        List<Member> currentVoiceChannelMembers = event.getChannelJoined().getMembers();
+        List<Long> currentVoiceChannelMembersIdList = new ArrayList<>();
+
+        for (Member member: currentVoiceChannelMembers) {
+            currentVoiceChannelMembersIdList.add(member.getUser().getIdLong());
+        }
+
+        if (currentVoiceChannelMembers.containsAll(userIdList)) {
+            guild.getDefaultChannel().sendMessage("Still Playing Dumbass Games!?").queue();
+        }
+
     }
 }
