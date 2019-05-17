@@ -381,7 +381,7 @@ public class Bot extends ListenerAdapter {
             currentVoiceChannelMembersIdList.add(member.getUser().getIdLong());
         }
 
-        if (currentVoiceChannelMembers.containsAll(userIdList)) {
+        if (currentVoiceChannelMembersIdList.containsAll(userIdList)) {
 //            guild.getDefaultChannel().sendMessage("Still Playing Dumbass Games!?").queue();
             guild.getDefaultChannel().sendMessage("test").queue();
         }
