@@ -358,30 +358,30 @@ public class Bot extends ListenerAdapter {
         }
     }
 
-    @Override
-    public void onGuildVoiceJoin(GuildVoiceJoinEvent event) {
-
-        Guild guild = event.getGuild();
-
-        Long ckelsoId = new Long("93105200365043712");
-        Long spitfire = new Long("93121331700195328");
-        Long gopherit = new Long("93140127949287424");
-
-        List<Long> userIdList = new ArrayList<>();
-        userIdList.add(ckelsoId);
-        userIdList.add(spitfire);
-        userIdList.add(gopherit);
-
-        List<Member> currentVoiceChannelMembers = event.getChannelJoined().getMembers();
-        List<Long> currentVoiceChannelMembersIdList = new ArrayList<>();
-
-        for (Member member: currentVoiceChannelMembers) {
-            currentVoiceChannelMembersIdList.add(member.getUser().getIdLong());
-        }
-
-        if (currentVoiceChannelMembersIdList.containsAll(userIdList)) {
-            guild.getDefaultChannel().sendMessage("Still Playing Dumbass Games!?").queue();
-        }
-
-    }
+//    @Override
+//    public void onGuildVoiceJoin(GuildVoiceJoinEvent event) {
+//
+//        Guild guild = event.getGuild();
+//
+//        Long ckelsoId = new Long("93105200365043712");
+//        Long spitfire = new Long("93121331700195328");
+//        Long gopherit = new Long("93140127949287424");
+//
+//        List<Long> userIdList = new ArrayList<>();
+//        userIdList.add(ckelsoId);
+//        userIdList.add(spitfire);
+//        userIdList.add(gopherit);
+//
+//        List<Member> currentVoiceChannelMembers = event.getChannelJoined().getMembers();
+//        List<Long> currentVoiceChannelMembersIdList = new ArrayList<>();
+//
+//        for (Member member: currentVoiceChannelMembers) {
+//            currentVoiceChannelMembersIdList.add(member.getUser().getIdLong());
+//        }
+//
+//        if (currentVoiceChannelMembersIdList.containsAll(userIdList)) {
+//            guild.getDefaultChannel().sendMessage("Still Playing Dumbass Games!?").queue();
+//        }
+//
+//    }
 }
