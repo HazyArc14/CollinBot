@@ -110,6 +110,7 @@ public class Bot extends ListenerAdapter {
                         "!lag\n" +
                         "!licker\n" +
                         "!magicResit\n" +
+                        "!meetYa\n" +
                         "!monkeys\n" +
                         "!oil\n" +
                         "!ripDoggo\n" +
