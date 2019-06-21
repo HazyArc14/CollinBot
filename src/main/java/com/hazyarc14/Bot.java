@@ -94,6 +94,7 @@ public class Bot extends ListenerAdapter {
                         "Audio Triggers:\n" +
                         "!ahhha\n" +
                         "!arams\n" +
+                        "!auPhau\n" +
                         "!boutTime\n" +
                         "!celsoHere\n" +
                         "!ckelso\n" +
@@ -138,6 +139,11 @@ public class Bot extends ListenerAdapter {
                     log.info("User: " + event.getAuthor().getName() + " Command: !arams");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/arams.mp3");
+                }
+                if ("!auPhau".equalsIgnoreCase(command[0])) {
+                    log.info("User: " + event.getAuthor().getName() + " Command: !auPhau");
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/auPhau.mp3");
                 }
                 if ("!boutTime".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !boutTime");
