@@ -400,10 +400,11 @@ public class Bot extends ListenerAdapter {
 
         MessageBuilder message = new MessageBuilder();
         EmbedBuilder embed = new EmbedBuilder();
-        File file = new File(emoteName + "gif");
+        File file = new File(emoteName + ".gif");
         embed.setImage(emoteUrl);
         message.setEmbed(embed.build());
         channel.sendFile(file, message.build()).queue();
+        channel.sendMessage(embed.build()).queue();
 
     }
 
