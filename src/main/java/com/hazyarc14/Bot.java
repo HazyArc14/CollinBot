@@ -403,7 +403,7 @@ public class Bot extends ListenerAdapter {
         File file = new File(emoteName + ".gif");
         embed.setImage(emoteUrl);
         message.setEmbed(embed.build());
-        channel.sendFile(file, message.build()).queue();
+//        channel.sendFile(file, message.build()).queue();
         channel.sendMessage(embed.build()).queue();
 
     }
