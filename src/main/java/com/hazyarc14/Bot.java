@@ -7,8 +7,10 @@ import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
+import net.dv8tion.jda.core.MessageBuilder;
 import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.guild.voice.GuildVoiceJoinEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
@@ -322,15 +324,16 @@ public class Bot extends ListenerAdapter {
                 if (";pepoSabers;".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: ;pepoSabers;");
                     event.getMessage().delete().queue();
-                    BufferedImage bufferedImage = null;
-                    File gif = new File("pepoSabers.gif");
-                    try {
-                        bufferedImage = ImageIO.read(new URL("https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepoSabers.gif"));
-                        ImageIO.write(bufferedImage, "gif", gif);
-                    } catch (IOException e) {
-                        log.error("Exception: ", e);
-                    }
-                    guild.getDefaultChannel().sendFile(gif).queue();
+//                    BufferedImage bufferedImage = null;
+//                    File gif = new File("pepoSabers.gif");
+//                    try {
+//                        bufferedImage = ImageIO.read(new URL("https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepoSabers.gif"));
+//                        ImageIO.write(bufferedImage, "gif", gif);
+//                    } catch (IOException e) {
+//                        log.error("Exception: ", e);
+//                    }
+//                    guild.getDefaultChannel().sendFile(gif).queue();
+                    sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepoSabers.gif");
                 }
 
             }
@@ -391,6 +394,17 @@ public class Bot extends ListenerAdapter {
         if (!audioManager.isConnected() && !audioManager.isAttemptingToConnect()) {
             audioManager.openAudioConnection(voiceChannel);
         }
+    }
+
+    private static void sendEmote(TextChannel channel, String emoteName, String emoteUrl) {
+
+        MessageBuilder message = new MessageBuilder();
+        EmbedBuilder embed = new EmbedBuilder();
+        File file = new File(emoteName + "gif");
+        embed.setImage(emoteUrl);
+        message.setEmbed(embed.build());
+        channel.sendFile(file, message.build()).queue();
+
     }
 
 //    @Override
