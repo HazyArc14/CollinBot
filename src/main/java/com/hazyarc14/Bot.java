@@ -122,7 +122,9 @@ public class Bot extends ListenerAdapter {
                         "!warus\n" +
                         "!watch\n" +
                         "!weeee\n" +
-                        "!yooo" +
+                        "!yooo\n" +
+                        "\nEmotes:\n" +
+                        ";pepoSabers;" +
                         "```")
                         .queue();
 
@@ -316,6 +318,21 @@ public class Bot extends ListenerAdapter {
                 } else if ("~leave".equals(command[0])) {
                     guild.getAudioManager().closeAudioConnection();
                 }
+
+                if (";pepoSabers;".equalsIgnoreCase(command[0])) {
+                    log.info("User: " + event.getAuthor().getName() + " Command: ;pepoSabers;");
+                    event.getMessage().delete().queue();
+                    BufferedImage bufferedImage = null;
+                    File gif = new File("pepoSabers.gif");
+                    try {
+                        bufferedImage = ImageIO.read(new URL("https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepoSabers.gif"));
+                        ImageIO.write(bufferedImage, "gif", gif);
+                    } catch (IOException e) {
+                        log.error("Exception: ", e);
+                    }
+                    guild.getDefaultChannel().sendFile(gif).queue();
+                }
+
             }
         }
 
