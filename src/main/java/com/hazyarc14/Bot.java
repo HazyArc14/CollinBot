@@ -128,49 +128,11 @@ public class Bot extends ListenerAdapter {
                         "!weeee\n" +
                         "!yooo\n" +
                         "\nEmotes:\n" +
-                        ";pepoSabers;" +
+                        ";pepoSabers;\n" +
+                        ";rainbowWeeb;" +
                         "```";
 
                 event.getAuthor().openPrivateChannel().queue((channel) -> channel.sendMessage(helpMessage).queue());
-
-//                guild.getDefaultChannel().sendMessage("```" +
-//                        "Since Your Little Bitch Ass Can't Remember Shit!\n\n" +
-//                        "Audio Triggers:\n" +
-//                        "!ahhha\n" +
-//                        "!arams\n" +
-//                        "!auPhau\n" +
-//                        "!boutTime\n" +
-//                        "!celsoHere\n" +
-//                        "!ckelso\n" +
-//                        "!clap\n" +
-//                        "!clickyBoi\n" +
-//                        "!croissant\n" +
-//                        "!dickHer\n" +
-//                        "!dumbassGame\n" +
-//                        "!fortFucker\n" +
-//                        "!goldfish\n" +
-//                        "!homie\n" +
-//                        "!horn\n" +
-//                        "!horse\n" +
-//                        "!kirk\n" +
-//                        "!lag\n" +
-//                        "!licker\n" +
-//                        "!magicResit\n" +
-//                        "!meetYa\n" +
-//                        "!monkeys\n" +
-//                        "!oil\n" +
-//                        "!ripDoggo\n" +
-//                        "!sameGame\n" +
-//                        "!snap\n" +
-//                        "!tinsel\n" +
-//                        "!warus\n" +
-//                        "!watch\n" +
-//                        "!weeee\n" +
-//                        "!yooo\n" +
-//                        "\nEmotes:\n" +
-//                        ";pepoSabers;" +
-//                        "```")
-//                        .queue();
 
             }
 
@@ -368,16 +330,12 @@ public class Bot extends ListenerAdapter {
             if (";pepoSabers;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepoSabers;");
                 event.getMessage().delete().queue();
-//                    BufferedImage bufferedImage = null;
-//                    File gif = new File("pepoSabers.gif");
-//                    try {
-//                        bufferedImage = ImageIO.read(new URL("https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepoSabers.gif"));
-//                        ImageIO.write(bufferedImage, "gif", gif);
-//                    } catch (IOException e) {
-//                        log.error("Exception: ", e);
-//                    }
-//                    guild.getDefaultChannel().sendFile(gif).queue();
                 sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepoSabers.gif");
+            }
+            if (";rainbowWeeb;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;rainbowWeeb;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/rainbowWeeb.gif");
             }
 
         }
