@@ -441,6 +441,16 @@ public class Bot extends ListenerAdapter {
 
     private static void sendEmote(TextChannel channel, String emoteName, String emoteUrl) {
 
+        BufferedImage bufferedImage = null;
+        File gif = new File(emoteName + ".gif");
+        try {
+            bufferedImage = ImageIO.read(new URL(emoteUrl));
+            ImageIO.write(bufferedImage, "gif", gif);
+        } catch (IOException e) {
+            log.error("Exception: ", e);
+        }
+        channel.sendFile(gif).queue();
+
         MessageBuilder message = new MessageBuilder();
         EmbedBuilder embed = new EmbedBuilder();
         File file = new File(emoteName + ".gif");
