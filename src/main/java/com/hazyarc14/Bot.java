@@ -129,12 +129,14 @@ public class Bot extends ListenerAdapter {
                         "!yooo\n" +
                         "\nEmotes:\n" +
                         ";pepeD;\n" +
+                        ";pepeDance;\n" +
                         ";pepegaPls;\n" +
                         ";pepeJam;\n" +
                         ";pepoSabers;\n" +
                         ";ppHop;\n" +
                         ";rainbowWeeb;\n" +
                         ";schubertWalk;\n" +
+                        ";triKool;\n" +
                         "```";
 
 
@@ -338,6 +340,11 @@ public class Bot extends ListenerAdapter {
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepeD.gif");
             }
+            if (";pepeDance;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;pepeDance;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepeDance.gif");
+            }
             if (";pepegaPls;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepegaPls;");
                 event.getMessage().delete().queue();
@@ -367,6 +374,11 @@ public class Bot extends ListenerAdapter {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;schubertWalk;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/schubertWalk.gif");
+            }
+            if (";triKool;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;triKool;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/triKool.gif");
             }
 
         }
