@@ -132,6 +132,8 @@ public class Bot extends ListenerAdapter {
                         "!weeee\n" +
                         "!yooo\n" +
                         "\nEmotes:\n" +
+                        ";crabPls;\n" +
+                        ";dance;\n" +
                         ";pepeD;\n" +
                         ";pepeDance;\n" +
                         ";pepegaPls;\n" +
@@ -339,6 +341,16 @@ public class Bot extends ListenerAdapter {
 
             }
 
+            if (";crabPls;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;crabPls;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "crabPls.gif");
+            }
+            if (";dance;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;dance;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "dance.gif");
+            }
             if (";pepeD;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepeD;");
                 event.getMessage().delete().queue();
