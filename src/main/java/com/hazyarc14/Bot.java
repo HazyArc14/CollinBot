@@ -132,6 +132,7 @@ public class Bot extends ListenerAdapter {
                         "!weeee\n" +
                         "!yooo\n" +
                         "\nEmotes:\n" +
+                        ";coggers;\n" +
                         ";crabPls;\n" +
                         ";dance;\n" +
                         ";pepeD;\n" +
@@ -341,6 +342,11 @@ public class Bot extends ListenerAdapter {
 
             }
 
+            if (";coggers;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;coggers;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "coggers.gif");
+            }
             if (";crabPls;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;crabPls;");
                 event.getMessage().delete().queue();
