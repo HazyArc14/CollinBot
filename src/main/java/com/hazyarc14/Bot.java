@@ -466,16 +466,9 @@ public class Bot extends ListenerAdapter {
 
     private static void sendEmote(TextChannel channel, String emoteName, String emoteUrl) {
 
-        MessageBuilder message = new MessageBuilder();
-        EmbedBuilder embed = new EmbedBuilder();
-        embed.setImage(emoteUrl);
-        message.setEmbed(embed.build());
-        channel.sendMessage(embed.build()).queue();
-
         File gif = new File(emoteName + ".gif");
         try {
             FileUtils.copyURLToFile(new URL(emoteUrl), gif);
-//            channel.sendMessage("").addFile(gif).queue();
             channel.sendFile(gif).queue();
         } catch (Exception e) {
             log.error("Error: ", e);
