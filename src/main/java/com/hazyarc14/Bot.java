@@ -16,6 +16,7 @@ import net.dv8tion.jda.core.events.guild.voice.GuildVoiceJoinEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import net.dv8tion.jda.core.managers.AudioManager;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,6 +25,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.MemoryImageSource;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -469,6 +471,14 @@ public class Bot extends ListenerAdapter {
         embed.setImage(emoteUrl);
         message.setEmbed(embed.build());
         channel.sendMessage(embed.build()).queue();
+
+        File gif = new File(emoteName + ".gif");
+        try {
+            FileUtils.copyURLToFile(new URL(emoteUrl), gif);
+            channel.sendMessage("").addFile(gif).queue();
+        } catch (Exception e) {
+            log.error("Error: ", e);
+        }
 
     }
 
