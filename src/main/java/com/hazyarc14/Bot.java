@@ -128,9 +128,15 @@ public class Bot extends ListenerAdapter {
                         "!weeee\n" +
                         "!yooo\n" +
                         "\nEmotes:\n" +
+                        ";pepeD;\n" +
+                        ";pepegaPls;\n" +
+                        ";pepeJam;\n" +
                         ";pepoSabers;\n" +
-                        ";rainbowWeeb;" +
+                        ";ppHop;\n" +
+                        ";rainbowWeeb;\n" +
+                        ";schubertWalk;\n" +
                         "```";
+
 
                 event.getAuthor().openPrivateChannel().queue((channel) -> channel.sendMessage(helpMessage).queue());
 
@@ -327,15 +333,40 @@ public class Bot extends ListenerAdapter {
 
             }
 
+            if (";pepeD;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;pepeD;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepeD.gif");
+            }
+            if (";pepegaPls;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;pepegaPls;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepegaPls.gif");
+            }
+            if (";pepeJam;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;pepeJam;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepeJam.gif");
+            }
             if (";pepoSabers;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepoSabers;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepoSabers.gif");
             }
+            if (";ppHop;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;ppHop;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/ppHop.gif");
+            }
             if (";rainbowWeeb;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;rainbowWeeb;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/rainbowWeeb.gif");
+            }
+            if (";schubertWalk;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;schubertWalk;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/schubertWalk.gif");
             }
 
         }
