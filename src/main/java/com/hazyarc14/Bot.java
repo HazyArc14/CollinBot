@@ -65,6 +65,10 @@ public class Bot extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
+
+        String githubAudioBaseURL = "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/";
+        String githubImageBaseURL = "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/";
+
         String[] command = event.getMessage().getContentRaw().split(" ", 2);
         Guild guild = event.getGuild();
         VoiceChannel voiceChannel = null;
@@ -149,112 +153,112 @@ public class Bot extends ListenerAdapter {
                 if ("!ahhha".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !ahhha");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/ahhha.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "ahhha.mp3");
                 }
                 if ("!arams".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !arams");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/arams.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "arams.mp3");
                 }
                 if ("!auPhau".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !auPhau");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/auPhau.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "auPhau.mp3");
                 }
                 if ("!boutTime".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !boutTime");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/boutTime.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "boutTime.mp3");
                 }
                 if ("!celsoHere".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !celsoHere");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/celsoHere.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "celsoHere.mp3");
                 }
                 if ("!ckelso".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !ckelso");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/ckelso.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "ckelso.mp3");
                 }
                 if ("!clap".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !arams");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/clap.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "clap.mp3");
                 }
                 if ("!clickyBoi".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !arams");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/clickyBoi.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "clickyBoi.mp3");
                 }
                 if ("!croissant".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !croissant");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/croissant.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "croissant.mp3");
                 }
                 if ("!dickHer".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !dickHer");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/dickHer.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "dickHer.mp3");
                 }
                 if ("!dumbassGame".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !dumbassGame");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/dumbassGame.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "dumbassGame.mp3");
                 }
                 if ("!fortFucker".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !fortFucker");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/fortFucker.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "fortFucker.mp3");
                 }
                 if ("!goldfish".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !goldfish");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/goldfish.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "goldfish.mp3");
                 }
                 if ("!homie".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !homie");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/homie.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "homie.mp3");
                 }
                 if ("!horn".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !horn");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/horn.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "horn.mp3");
                 }
                 if ("!horse".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !horse");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/horse.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "horse.mp3");
                 }
                 if ("!kirk".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !kirk");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/kirk.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "kirk.mp3");
                 }
                 if ("!lag".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !lag");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/lag.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "lag.mp3");
                 }
                 if ("!licker".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !licker");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/licker.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "licker.mp3");
                 }
                 if ("!magicResist".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !magicResist");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/magicResist.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "magicResist.mp3");
                 }
                 if ("!meetYa".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !meetYa");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/meetYa.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "meetYa.mp3");
                 }
                 if ("!monkey".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !monkey");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/monkeys.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "monkeys.mp3");
                 }
                 if ("!monkeys".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !monkeys");
@@ -262,63 +266,63 @@ public class Bot extends ListenerAdapter {
                     BufferedImage bufferedImage = null;
                     File image = new File("monkeys.png");
                     try {
-                        bufferedImage = ImageIO.read(new URL("https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/monkeys.png"));
+                        bufferedImage = ImageIO.read(new URL(githubImageBaseURL + "monkeys.png"));
                         ImageIO.write(bufferedImage, "png", image);
                     } catch (IOException e) {
                         log.error("Exception: ", e);
                     }
                     guild.getDefaultChannel().sendFile(image).queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/monkeys.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "monkeys.mp3");
                 }
                 if ("!oil".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !oil");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/oil.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "audio/oil.mp3");
                 }
                 if (event.getAuthor().getIdLong() != 93140127949287424L && "!ripDoggo".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !ripDoggo");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/ripDoggo.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "ripDoggo.mp3");
                 }
                 if ("!sameGame".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !sameGame");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/sameGame.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "sameGame.mp3");
                 }
                 if ("!snap".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !snap");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/snap.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "snap.mp3");
                 }
                 if ("!sweetheart".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !sweetheart");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/sweetheart.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "sweetheart.mp3");
                 }
                 if ("!tinsel".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !tinsel");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/tinsel.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "tinsel.mp3");
                 }
                 if ("!warus".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !warus");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/warus.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "warus.mp3");
                 }
                 if ("!watch".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !watch");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/watch.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "watch.mp3");
                 }
                 if ("!weeee".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !weeee");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/weeee.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "weeee.mp3");
                 }
                 if ("!yooo".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !yooo");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/yooo.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "yooo.mp3");
                 }
                 
                 if ("~play".equals(command[0]) && command.length == 2) {
@@ -338,47 +342,47 @@ public class Bot extends ListenerAdapter {
             if (";pepeD;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepeD;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepeD.gif");
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepeD.gif");
             }
             if (";pepeDance;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepeDance;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepeDance.gif");
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepeDance.gif");
             }
             if (";pepegaPls;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepegaPls;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepegaPls.gif");
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepegaPls.gif");
             }
             if (";pepeJam;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepeJam;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepeJam.gif");
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepeJam.gif");
             }
             if (";pepoSabers;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepoSabers;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepoSabers.gif");
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepoSabers.gif");
             }
             if (";ppHop;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;ppHop;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/ppHop.gif");
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "ppHop.gif");
             }
             if (";rainbowWeeb;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;rainbowWeeb;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/rainbowWeeb.gif");
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "rainbowWeeb.gif");
             }
             if (";schubertWalk;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;schubertWalk;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/schubertWalk.gif");
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "schubertWalk.gif");
             }
             if (";triKool;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;triKool;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/triKool.gif");
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "triKool.gif");
             }
 
         }
