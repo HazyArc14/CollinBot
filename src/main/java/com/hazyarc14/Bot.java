@@ -90,8 +90,10 @@ public class Bot extends ListenerAdapter {
             }
 
             if ("!help".equalsIgnoreCase(command[0])) {
+
                 event.getMessage().delete().queue();
-                guild.getDefaultChannel().sendMessage("```" +
+
+                String helpMessage = "```" +
                         "Since Your Little Bitch Ass Can't Remember Shit!\n\n" +
                         "Audio Triggers:\n" +
                         "!ahhha\n" +
@@ -127,8 +129,48 @@ public class Bot extends ListenerAdapter {
                         "!yooo\n" +
                         "\nEmotes:\n" +
                         ";pepoSabers;" +
-                        "```")
-                        .queue();
+                        "```";
+
+                event.getAuthor().openPrivateChannel().queue((channel) -> channel.sendMessage(helpMessage).queue());
+
+//                guild.getDefaultChannel().sendMessage("```" +
+//                        "Since Your Little Bitch Ass Can't Remember Shit!\n\n" +
+//                        "Audio Triggers:\n" +
+//                        "!ahhha\n" +
+//                        "!arams\n" +
+//                        "!auPhau\n" +
+//                        "!boutTime\n" +
+//                        "!celsoHere\n" +
+//                        "!ckelso\n" +
+//                        "!clap\n" +
+//                        "!clickyBoi\n" +
+//                        "!croissant\n" +
+//                        "!dickHer\n" +
+//                        "!dumbassGame\n" +
+//                        "!fortFucker\n" +
+//                        "!goldfish\n" +
+//                        "!homie\n" +
+//                        "!horn\n" +
+//                        "!horse\n" +
+//                        "!kirk\n" +
+//                        "!lag\n" +
+//                        "!licker\n" +
+//                        "!magicResit\n" +
+//                        "!meetYa\n" +
+//                        "!monkeys\n" +
+//                        "!oil\n" +
+//                        "!ripDoggo\n" +
+//                        "!sameGame\n" +
+//                        "!snap\n" +
+//                        "!tinsel\n" +
+//                        "!warus\n" +
+//                        "!watch\n" +
+//                        "!weeee\n" +
+//                        "!yooo\n" +
+//                        "\nEmotes:\n" +
+//                        ";pepoSabers;" +
+//                        "```")
+//                        .queue();
 
             }
 
@@ -321,9 +363,11 @@ public class Bot extends ListenerAdapter {
                     guild.getAudioManager().closeAudioConnection();
                 }
 
-                if (";pepoSabers;".equalsIgnoreCase(command[0])) {
-                    log.info("User: " + event.getAuthor().getName() + " Command: ;pepoSabers;");
-                    event.getMessage().delete().queue();
+            }
+
+            if (";pepoSabers;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;pepoSabers;");
+                event.getMessage().delete().queue();
 //                    BufferedImage bufferedImage = null;
 //                    File gif = new File("pepoSabers.gif");
 //                    try {
@@ -333,10 +377,9 @@ public class Bot extends ListenerAdapter {
 //                        log.error("Exception: ", e);
 //                    }
 //                    guild.getDefaultChannel().sendFile(gif).queue();
-                    sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepoSabers.gif");
-                }
-
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/pepoSabers.gif");
             }
+
         }
 
         super.onMessageReceived(event);
