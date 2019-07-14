@@ -475,7 +475,8 @@ public class Bot extends ListenerAdapter {
         File gif = new File(emoteName + ".gif");
         try {
             FileUtils.copyURLToFile(new URL(emoteUrl), gif);
-            channel.sendMessage("").addFile(gif).queue();
+//            channel.sendMessage("").addFile(gif).queue();
+            channel.sendFile(gif).queue();
         } catch (Exception e) {
             log.error("Error: ", e);
         }
