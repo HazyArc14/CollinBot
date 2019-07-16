@@ -138,9 +138,9 @@ public class Bot extends ListenerAdapter {
                         ";crabPls;\n" +
                         ";dance;\n" +
                         ";pepeD;\n" +
-                        ";pepeDance;\n" +
                         ";pepegaPls;\n" +
                         ";pepeJam;\n" +
+                        ";pepoDance;\n" +
                         ";pepoSabers;\n" +
                         ";ppHop;\n" +
                         ";rainbowWeeb;\n" +
@@ -364,11 +364,6 @@ public class Bot extends ListenerAdapter {
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepeD.gif");
             }
-            if (";pepeDance;".equalsIgnoreCase(command[0])) {
-                log.info("User: " + event.getAuthor().getName() + " Command: ;pepeDance;");
-                event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepeDance.gif");
-            }
             if (";pepegaPls;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepegaPls;");
                 event.getMessage().delete().queue();
@@ -378,6 +373,11 @@ public class Bot extends ListenerAdapter {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepeJam;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepeJam.gif");
+            }
+            if (";pepoDance;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;pepoDance;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepoDance.gif");
             }
             if (";pepoSabers;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepoSabers;");
