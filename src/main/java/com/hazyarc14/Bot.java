@@ -139,7 +139,9 @@ public class Bot extends ListenerAdapter {
                         ";dance;\n" +
                         ";pepeD;\n" +
                         ";pepegaPls;\n" +
+                        ";pepeGun;\n" +
                         ";pepeJam;\n" +
+                        ";pepeWave;\n" +
                         ";pepoDance;\n" +
                         ";pepoSabers;\n" +
                         ";ppHop;\n" +
@@ -347,37 +349,47 @@ public class Bot extends ListenerAdapter {
             if (";coggers;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;coggers;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "coggers.gif");
+                sendEmote(guild.getDefaultChannel(), "coggers", githubImageBaseURL + "coggers.gif");
             }
             if (";crabPls;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;crabPls;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "crabPls.gif");
+                sendEmote(guild.getDefaultChannel(), "crabPls", githubImageBaseURL + "crabPls.gif");
             }
             if (";dance;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;dance;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "dance.gif");
+                sendEmote(guild.getDefaultChannel(), "dance", githubImageBaseURL + "dance.gif");
             }
             if (";pepeD;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepeD;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepeD.gif");
+                sendEmote(guild.getDefaultChannel(), "pepeD", githubImageBaseURL + "pepeD.gif");
             }
             if (";pepegaPls;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepegaPls;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepegaPls.gif");
+                sendEmote(guild.getDefaultChannel(), "pepegaPls", githubImageBaseURL + "pepegaPls.gif");
+            }
+            if (";pepeGun;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;pepeGun;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepeGun", githubImageBaseURL + "pepeGun.gif");
             }
             if (";pepeJam;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepeJam;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepeJam.gif");
+                sendEmote(guild.getDefaultChannel(), "pepeJam", githubImageBaseURL + "pepeJam.gif");
+            }
+            if (";pepeWave;".equalsIgnoreCase(command[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;pepeWave;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepeWave", githubImageBaseURL + "pepeWave.gif");
             }
             if (";pepoDance;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepoDance;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepoDance.gif");
+                sendEmote(guild.getDefaultChannel(), "pepoDance", githubImageBaseURL + "pepoDance.gif");
             }
             if (";pepoSabers;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepoSabers;");
@@ -387,22 +399,22 @@ public class Bot extends ListenerAdapter {
             if (";ppHop;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;ppHop;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "ppHop.gif");
+                sendEmote(guild.getDefaultChannel(), "ppHop", githubImageBaseURL + "ppHop.gif");
             }
             if (";rainbowWeeb;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;rainbowWeeb;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "rainbowWeeb.gif");
+                sendEmote(guild.getDefaultChannel(), "rainbowWeeb", githubImageBaseURL + "rainbowWeeb.gif");
             }
             if (";schubertWalk;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;schubertWalk;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "schubertWalk.gif");
+                sendEmote(guild.getDefaultChannel(), "schubertWalk", githubImageBaseURL + "schubertWalk.gif");
             }
             if (";triKool;".equalsIgnoreCase(command[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;triKool;");
                 event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "triKool.gif");
+                sendEmote(guild.getDefaultChannel(), "triKool", githubImageBaseURL + "triKool.gif");
             }
 
         }
