@@ -124,6 +124,7 @@ public class Bot extends ListenerAdapter {
                         "!dumbassGame\n" +
                         "!fortFucker\n" +
                         "!goldfish\n" +
+                        "!heyJude\n" +
                         "!homie\n" +
                         "!horn\n" +
                         "!horse\n" +
@@ -230,6 +231,11 @@ public class Bot extends ListenerAdapter {
                     log.info("User: " + event.getAuthor().getName() + " Command: !goldfish");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "goldfish.mp3");
+                }
+                if ("!heyJude".equalsIgnoreCase(command[0])) {
+                    log.info("User: " + event.getAuthor().getName() + " Command: !heyJude");
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "heyJude.mp3");
                 }
                 if ("!homie".equalsIgnoreCase(command[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !homie");
