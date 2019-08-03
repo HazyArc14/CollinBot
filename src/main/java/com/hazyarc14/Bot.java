@@ -80,7 +80,7 @@ public class Bot extends ListenerAdapter {
         String githubAudioBaseURL = "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/";
         String githubImageBaseURL = "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/";
 
-        String[] command = event.getMessage().getContentRaw().split(" ", 2);
+        String[] command = event.getMessage().getContentRaw().split(" ");
         Guild guild = event.getGuild();
         VoiceChannel voiceChannel = null;
 
@@ -347,7 +347,7 @@ public class Bot extends ListenerAdapter {
                     loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "yooo.mp3");
                 }
                 
-                if ("~play".equals(command[0]) && command.length == 2) {
+                if ("~play".equals(command[0]) && command.length >= 2) {
                     log.info("User: " + event.getAuthor().getName() + " Command: ~play");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, command[1]);
