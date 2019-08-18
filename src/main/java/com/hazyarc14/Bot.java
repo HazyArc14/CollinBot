@@ -86,7 +86,7 @@ public class Bot extends ListenerAdapter {
 
         for(String command: commandList) {
             if (command.contains("?t=")) {
-                trackPosition = new Integer(command.substring(command.lastIndexOf("?t=")));
+                trackPosition = new Integer(command.substring(command.lastIndexOf("?t=") + 3));
                 log.info("trackPosition set: " + trackPosition.toString());
             }
         }
