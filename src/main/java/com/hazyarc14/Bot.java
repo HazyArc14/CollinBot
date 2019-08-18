@@ -81,6 +81,7 @@ public class Bot extends ListenerAdapter {
         String githubImageBaseURL = "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/";
 
         Integer trackPosition = 0;
+        String voiceChannelId = "";
 
         String[] commandList = event.getMessage().getContentRaw().split(" ");
 
@@ -89,6 +90,10 @@ public class Bot extends ListenerAdapter {
                 trackPosition = new Integer(command.substring(command.lastIndexOf("?t=") + 3));
                 log.info("trackPosition set: " + trackPosition.toString());
             }
+            if (command.contains("$vc")) {
+                voiceChannelId = command.substring(command.lastIndexOf("$vc") + 3);
+                log.info("voiceChannelId: " + voiceChannelId);
+            }
         }
 
         Guild guild = event.getGuild();
@@ -96,21 +101,13 @@ public class Bot extends ListenerAdapter {
 
         if (guild != null) {
 
-            if (commandList[0] == "~play") {
+            if (!voiceChannelId.equalsIgnoreCase("")) {
                 try {
-                    voiceChannel = event.getGuild().getVoiceChannelById(commandList[2]);
+                    voiceChannel = event.getGuild().getVoiceChannelById(voiceChannelId);
                 } catch (Exception e) {
-                    log.error("Could not get voice channel by id " + commandList[2] + " :: ", e);
+                    log.error("Could not get voice channel by id " + voiceChannelId + " :: ", e);
                 }
-            } else if (commandList.length == 2) {
-                try {
-                    voiceChannel = event.getGuild().getVoiceChannelById(commandList[1]);
-                } catch (Exception e) {
-                    log.error("Could not get voice channel by id " + commandList[1] + " :: ", e);
-                }
-            }
-
-            if (voiceChannel == null) {
+            } else {
                 voiceChannel = event.getMember().getVoiceState().getChannel();
             }
 
