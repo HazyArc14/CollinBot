@@ -86,7 +86,7 @@ public class Bot extends ListenerAdapter {
 
         for(String command: commandList) {
             if (command.contains("-p=")) {
-                trackPosition = new Integer(command.substring(2));
+                trackPosition = new Integer(command.substring(3));
                 log.info("trackPosition set: " + trackPosition.toString());
             }
         }
