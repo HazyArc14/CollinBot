@@ -80,23 +80,33 @@ public class Bot extends ListenerAdapter {
         String githubAudioBaseURL = "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/";
         String githubImageBaseURL = "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/";
 
-        String[] command = event.getMessage().getContentRaw().split(" ");
+        Integer trackPosition = 0;
+
+        String[] commandList = event.getMessage().getContentRaw().split(" ");
+
+        for(String command: commandList) {
+            if (command.contains("-p=")) {
+                trackPosition = new Integer(command.substring(2));
+                log.info("trackPosition set: " + trackPosition.toString());
+            }
+        }
+
         Guild guild = event.getGuild();
         VoiceChannel voiceChannel = null;
 
         if (guild != null) {
 
-            if (command[0] == "~play") {
+            if (commandList[0] == "~play") {
                 try {
-                    voiceChannel = event.getGuild().getVoiceChannelById(command[2]);
+                    voiceChannel = event.getGuild().getVoiceChannelById(commandList[2]);
                 } catch (Exception e) {
-                    log.error("Could not get voice channel by id " + command[2] + " :: ", e);
+                    log.error("Could not get voice channel by id " + commandList[2] + " :: ", e);
                 }
-            } else if (command.length == 2) {
+            } else if (commandList.length == 2) {
                 try {
-                    voiceChannel = event.getGuild().getVoiceChannelById(command[1]);
+                    voiceChannel = event.getGuild().getVoiceChannelById(commandList[1]);
                 } catch (Exception e) {
-                    log.error("Could not get voice channel by id " + command[1] + " :: ", e);
+                    log.error("Could not get voice channel by id " + commandList[1] + " :: ", e);
                 }
             }
 
@@ -104,7 +114,7 @@ public class Bot extends ListenerAdapter {
                 voiceChannel = event.getMember().getVoiceState().getChannel();
             }
 
-            if ("!help".equalsIgnoreCase(command[0])) {
+            if ("!help".equalsIgnoreCase(commandList[0])) {
 
                 event.getMessage().delete().queue();
 
@@ -167,122 +177,122 @@ public class Bot extends ListenerAdapter {
 
             if (voiceChannel != null) {
 
-                if ("!ahhha".equalsIgnoreCase(command[0])) {
+                if ("!ahhha".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !ahhha");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "ahhha.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "ahhha.mp3", 0);
                 }
-                if ("!arams".equalsIgnoreCase(command[0])) {
+                if ("!arams".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !arams");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "arams.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "arams.mp3", 0);
                 }
-                if ("!auPhau".equalsIgnoreCase(command[0])) {
+                if ("!auPhau".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !auPhau");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "auPhau.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "auPhau.mp3", 0);
                 }
-                if ("!boutTime".equalsIgnoreCase(command[0])) {
+                if ("!boutTime".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !boutTime");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "boutTime.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "boutTime.mp3", 0);
                 }
-                if ("!celsoHere".equalsIgnoreCase(command[0])) {
+                if ("!celsoHere".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !celsoHere");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "celsoHere.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "celsoHere.mp3", 0);
                 }
-                if ("!ckelso".equalsIgnoreCase(command[0])) {
+                if ("!ckelso".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !ckelso");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "ckelso.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "ckelso.mp3", 0);
                 }
-                if ("!clap".equalsIgnoreCase(command[0])) {
+                if ("!clap".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !arams");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "clap.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "clap.mp3", 0);
                 }
-                if ("!clickyBoi".equalsIgnoreCase(command[0])) {
+                if ("!clickyBoi".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !arams");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "clickyBoi.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "clickyBoi.mp3", 0);
                 }
-                if ("!croissant".equalsIgnoreCase(command[0])) {
+                if ("!croissant".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !croissant");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "croissant.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "croissant.mp3", 0);
                 }
-                if ("!dickHer".equalsIgnoreCase(command[0])) {
+                if ("!dickHer".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !dickHer");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "dickHer.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "dickHer.mp3", 0);
                 }
-                if ("!dumbassGame".equalsIgnoreCase(command[0])) {
+                if ("!dumbassGame".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !dumbassGame");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "dumbassGame.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "dumbassGame.mp3", 0);
                 }
-                if ("!fortFucker".equalsIgnoreCase(command[0])) {
+                if ("!fortFucker".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !fortFucker");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "fortFucker.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "fortFucker.mp3", 0);
                 }
-                if ("!goldfish".equalsIgnoreCase(command[0])) {
+                if ("!goldfish".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !goldfish");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "goldfish.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "goldfish.mp3", 0);
                 }
-                if ("!heyJude".equalsIgnoreCase(command[0])) {
+                if ("!heyJude".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !heyJude");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "heyJude.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "heyJude.mp3", 0);
                 }
-                if ("!homie".equalsIgnoreCase(command[0])) {
+                if ("!homie".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !homie");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "homie.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "homie.mp3", 0);
                 }
-                if ("!horn".equalsIgnoreCase(command[0])) {
+                if ("!horn".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !horn");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "horn.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "horn.mp3", 0);
                 }
-                if ("!horse".equalsIgnoreCase(command[0])) {
+                if ("!horse".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !horse");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "horse.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "horse.mp3", 0);
                 }
-                if ("!kirk".equalsIgnoreCase(command[0])) {
+                if ("!kirk".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !kirk");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "kirk.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "kirk.mp3", 0);
                 }
-                if ("!lag".equalsIgnoreCase(command[0])) {
+                if ("!lag".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !lag");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "lag.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "lag.mp3", 0);
                 }
-                if ("!licker".equalsIgnoreCase(command[0])) {
+                if ("!licker".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !licker");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "licker.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "licker.mp3", 0);
                 }
-                if ("!magicResist".equalsIgnoreCase(command[0])) {
+                if ("!magicResist".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !magicResist");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "magicResist.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "magicResist.mp3", 0);
                 }
-                if ("!meetYa".equalsIgnoreCase(command[0])) {
+                if ("!meetYa".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !meetYa");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "meetYa.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "meetYa.mp3", 0);
                 }
-                if ("!monkey".equalsIgnoreCase(command[0])) {
+                if ("!monkey".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !monkey");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "monkeys.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "monkeys.mp3", 0);
                 }
-                if ("!monkeys".equalsIgnoreCase(command[0])) {
+                if ("!monkeys".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !monkeys");
                     event.getMessage().delete().queue();
                     BufferedImage bufferedImage = null;
@@ -294,139 +304,139 @@ public class Bot extends ListenerAdapter {
                         log.error("Exception: ", e);
                     }
                     guild.getDefaultChannel().sendFile(image).queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "monkeys.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "monkeys.mp3", 0);
                 }
-                if ("!oil".equalsIgnoreCase(command[0])) {
+                if ("!oil".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !oil");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "audio/oil.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "audio/oil.mp3", 0);
                 }
-                if (event.getAuthor().getIdLong() != 93140127949287424L && "!ripDoggo".equalsIgnoreCase(command[0])) {
+                if (event.getAuthor().getIdLong() != 93140127949287424L && "!ripDoggo".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !ripDoggo");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "ripDoggo.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "ripDoggo.mp3", 0);
                 }
-                if ("!sameGame".equalsIgnoreCase(command[0])) {
+                if ("!sameGame".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !sameGame");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "sameGame.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "sameGame.mp3", 0);
                 }
-                if ("!snap".equalsIgnoreCase(command[0])) {
+                if ("!snap".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !snap");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "snap.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "snap.mp3", 0);
                 }
-                if ("!sweetheart".equalsIgnoreCase(command[0])) {
+                if ("!sweetheart".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !sweetheart");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "sweetheart.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "sweetheart.mp3", 0);
                 }
-                if ("!tinsel".equalsIgnoreCase(command[0])) {
+                if ("!tinsel".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !tinsel");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "tinsel.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "tinsel.mp3", 0);
                 }
-                if ("!warus".equalsIgnoreCase(command[0])) {
+                if ("!warus".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !warus");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "warus.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "warus.mp3", 0);
                 }
-                if ("!watch".equalsIgnoreCase(command[0])) {
+                if ("!watch".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !watch");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "watch.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "watch.mp3", 0);
                 }
-                if ("!weeee".equalsIgnoreCase(command[0])) {
+                if ("!weeee".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !weeee");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "weeee.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "weeee.mp3", 0);
                 }
-                if ("!yooo".equalsIgnoreCase(command[0])) {
+                if ("!yooo".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !yooo");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "yooo.mp3");
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "yooo.mp3", 0);
                 }
                 
-                if ("~play".equals(command[0]) && command.length >= 2) {
+                if ("~play".equals(commandList[0]) && commandList.length >= 2) {
                     log.info("User: " + event.getAuthor().getName() + " Command: ~play");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, command[1]);
-                } else if ("~skip".equals(command[0])) {
+                    loadAndPlay(event.getTextChannel(), voiceChannel, commandList[1], trackPosition);
+                } else if ("~skip".equals(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: ~skip");
                     event.getMessage().delete().queue();
                     skipTrack(event.getTextChannel());
-                } else if ("~leave".equals(command[0])) {
+                } else if ("~leave".equals(commandList[0])) {
                     guild.getAudioManager().closeAudioConnection();
                 }
 
             }
 
-            if (";coggers;".equalsIgnoreCase(command[0])) {
+            if (";coggers;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;coggers;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "coggers", githubImageBaseURL + "coggers.gif");
             }
-            if (";crabPls;".equalsIgnoreCase(command[0])) {
+            if (";crabPls;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;crabPls;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "crabPls", githubImageBaseURL + "crabPls.gif");
             }
-            if (";dance;".equalsIgnoreCase(command[0])) {
+            if (";dance;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;dance;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "dance", githubImageBaseURL + "dance.gif");
             }
-            if (";pepeD;".equalsIgnoreCase(command[0])) {
+            if (";pepeD;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepeD;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepeD", githubImageBaseURL + "pepeD.gif");
             }
-            if (";pepegaPls;".equalsIgnoreCase(command[0])) {
+            if (";pepegaPls;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepegaPls;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepegaPls", githubImageBaseURL + "pepegaPls.gif");
             }
-            if (";pepeGun;".equalsIgnoreCase(command[0])) {
+            if (";pepeGun;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepeGun;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepeGun", githubImageBaseURL + "pepeGun.gif");
             }
-            if (";pepeJam;".equalsIgnoreCase(command[0])) {
+            if (";pepeJam;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepeJam;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepeJam", githubImageBaseURL + "pepeJam.gif");
             }
-            if (";pepeWave;".equalsIgnoreCase(command[0])) {
+            if (";pepeWave;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepeWave;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepeWave", githubImageBaseURL + "pepeWave.gif");
             }
-            if (";pepoDance;".equalsIgnoreCase(command[0])) {
+            if (";pepoDance;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepoDance;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepoDance", githubImageBaseURL + "pepoDance.gif");
             }
-            if (";pepoSabers;".equalsIgnoreCase(command[0])) {
+            if (";pepoSabers;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepoSabers;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepoSabers.gif");
             }
-            if (";ppHop;".equalsIgnoreCase(command[0])) {
+            if (";ppHop;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;ppHop;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "ppHop", githubImageBaseURL + "ppHop.gif");
             }
-            if (";rainbowWeeb;".equalsIgnoreCase(command[0])) {
+            if (";rainbowWeeb;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;rainbowWeeb;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "rainbowWeeb", githubImageBaseURL + "rainbowWeeb.gif");
             }
-            if (";schubertWalk;".equalsIgnoreCase(command[0])) {
+            if (";schubertWalk;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;schubertWalk;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "schubertWalk", githubImageBaseURL + "schubertWalk.gif");
             }
-            if (";triKool;".equalsIgnoreCase(command[0])) {
+            if (";triKool;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;triKool;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "triKool", githubImageBaseURL + "triKool.gif");
@@ -437,13 +447,16 @@ public class Bot extends ListenerAdapter {
         super.onMessageReceived(event);
     }
 
-    private void loadAndPlay(final TextChannel channel, final VoiceChannel voiceChannel, final String trackUrl) {
+    private void loadAndPlay(final TextChannel channel, final VoiceChannel voiceChannel, final String trackUrl, final Integer trackPosition) {
         GuildMusicManager musicManager = getGuildAudioPlayer(channel.getGuild());
 
         playerManager.loadItemOrdered(musicManager, trackUrl, new AudioLoadResultHandler() {
             @Override
             public void trackLoaded(AudioTrack track) {
 //                channel.sendMessage("Adding to queue " + track.getInfo().title).queue();
+                if (trackPosition != 0) {
+                    track.setPosition(1000 * trackPosition);
+                }
                 play(channel.getGuild(), musicManager, voiceChannel, track);
             }
 
