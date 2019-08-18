@@ -111,7 +111,9 @@ public class Bot extends ListenerAdapter {
                 voiceChannel = event.getMember().getVoiceState().getChannel();
             }
 
-            if ("!help".equalsIgnoreCase(commandList[0])) {
+            if ("!timer".equalsIgnoreCase(commandList[0])) {
+                createTimer(guild, event.getTextChannel(), commandList);
+            } else if ("!help".equalsIgnoreCase(commandList[0])) {
 
                 event.getMessage().delete().queue();
 
@@ -509,6 +511,22 @@ public class Bot extends ListenerAdapter {
             channel.sendFile(gif).queue();
         } catch (Exception e) {
             log.error("Error: ", e);
+        }
+
+    }
+
+    private static void createTimer(Guild guild, TextChannel textChannel, String[] commandList) {
+
+        String userId = "";
+        Integer timer = 0;
+
+        for (String command: commandList) {
+            log.info("Command: " + command);
+            if (command.contains("?t=")) {
+                timer = new Integer(command.substring(command.lastIndexOf("?t=") + 3));
+            }
+//            if (command.contains())
+
         }
 
     }
