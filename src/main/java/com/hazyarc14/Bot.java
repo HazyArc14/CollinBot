@@ -112,6 +112,8 @@ public class Bot extends ListenerAdapter {
             }
 
             if ("!timer".equalsIgnoreCase(commandList[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: !timer");
+                event.getMessage().delete().queue();
                 createTimer(guild, event.getTextChannel(), commandList);
             } else if ("!help".equalsIgnoreCase(commandList[0])) {
 
@@ -521,11 +523,15 @@ public class Bot extends ListenerAdapter {
         Integer timer = 0;
 
         for (String command: commandList) {
-            log.info("Command: " + command);
+
             if (command.contains("?t=")) {
                 timer = new Integer(command.substring(command.lastIndexOf("?t=") + 3));
+                log.info("timer: " + timer);
             }
-//            if (command.contains())
+            if (command.matches("^<@\\d*>")) {
+                userId = command.substring(2, command.length() - 1);
+                log.info("userId: " + userId);
+            }
 
         }
 
