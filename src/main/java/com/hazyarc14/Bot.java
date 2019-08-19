@@ -151,6 +151,7 @@ public class Bot extends ListenerAdapter {
                         "!kirk\n" +
                         "!lag\n" +
                         "!licker\n" +
+                        "!lilBitchAss\n" +
                         "!magicResit\n" +
                         "!meetYa\n" +
                         "!monkeys\n" +
@@ -286,6 +287,11 @@ public class Bot extends ListenerAdapter {
                     log.info("User: " + event.getAuthor().getName() + " Command: !licker");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "licker.mp3", 0);
+                }
+                if ("!lilBitchAss".equalsIgnoreCase(commandList[0])) {
+                    log.info("User: " + event.getAuthor().getName() + " Command: !lilBitchAss");
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "lilBitchAss.mp3", 0);
                 }
                 if ("!magicResist".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !magicResist");
