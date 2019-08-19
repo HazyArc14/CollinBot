@@ -112,7 +112,11 @@ public class Bot extends ListenerAdapter {
                 voiceChannel = event.getMember().getVoiceState().getChannel();
             }
 
-            if ("!skipToggle".equalsIgnoreCase(commandList[0]) && event.getAuthor().getIdLong() == 148630426548699136L) {
+            if ("!voiceActionToggle".equalsIgnoreCase(commandList[0]) && event.getAuthor().getIdLong() == 148630426548699136L) {
+                event.getMessage().delete().queue();
+                botSettings.setVoiceJoinActions(!botSettings.getVoiceJoinActions());
+                log.info("voiceActionToggle set to: " + botSettings.getVoiceJoinActions());
+            } else if ("!skipToggle".equalsIgnoreCase(commandList[0]) && event.getAuthor().getIdLong() == 148630426548699136L) {
                 event.getMessage().delete().queue();
                 botSettings.setSkipMode(!botSettings.getSkipMode());
                 log.info("skipToggle set to: " + botSettings.getSkipMode());
@@ -553,11 +557,19 @@ public class Bot extends ListenerAdapter {
 
         Guild guild = event.getGuild();
 
+        Long ckelsoId = new Long("93105200365043712");
         Long derpIsland = new Long("93546382438174720");
 
-        if (event.getMember().getUser().getIdLong() == derpIsland) {
-            log.info("Will Joined a VoiceChannel");
-            loadAndPlay(guild.getDefaultChannel(), event.getChannelJoined(), githubAudioBaseURL + "homie.mp3", 0);
+        if (botSettings.getVoiceJoinActions()) {
+
+            if (event.getMember().getUser().getIdLong() == derpIsland) {
+                log.info("Will Joined a VoiceChannel");
+                loadAndPlay(guild.getDefaultChannel(), event.getChannelJoined(), githubAudioBaseURL + "homie.mp3", 0);
+            } else if (event.getMember().getUser().getIdLong() == ckelsoId) {
+                log.info("Kelso Joined a VoiceChannel");
+                loadAndPlay(guild.getDefaultChannel(), event.getChannelJoined(), githubAudioBaseURL + "celsoHere.mp3", 0);
+            }
+
         }
 
 //        Long ckelsoId = new Long("93105200365043712");
