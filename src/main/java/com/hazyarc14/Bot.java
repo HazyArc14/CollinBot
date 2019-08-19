@@ -367,11 +367,11 @@ public class Bot extends ListenerAdapter {
                     log.info("User: " + event.getAuthor().getName() + " Command: ~play");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, commandList[1], trackPosition);
-                } else if ("~skip".equals(commandList[0]) && botSettings.getSkipMode()) {
+                } else if ("~skip".equals(commandList[0]) && (botSettings.getSkipMode() || event.getAuthor().getIdLong() == 148630426548699136L)) {
                     log.info("User: " + event.getAuthor().getName() + " Command: ~skip");
                     event.getMessage().delete().queue();
                     skipTrack(event.getTextChannel());
-                } else if ("~leave".equals(commandList[0])) {
+                } else if ("~leave".equals(commandList[0]) && (botSettings.getSkipMode() || event.getAuthor().getIdLong() == 148630426548699136L)) {
                     guild.getAudioManager().closeAudioConnection();
                 }
 
