@@ -112,10 +112,10 @@ public class Bot extends ListenerAdapter {
                 voiceChannel = event.getMember().getVoiceState().getChannel();
             }
 
-            if ("!skipLock".equalsIgnoreCase(commandList[0]) && event.getAuthor().getIdLong() != 148630426548699136L) {
+            if ("!skipToggle".equalsIgnoreCase(commandList[0]) && event.getAuthor().getIdLong() == 148630426548699136L) {
                 event.getMessage().delete().queue();
                 botSettings.setSkipMode(!botSettings.getSkipMode());
-                log.info("skipLock toggled: " + botSettings.getSkipMode());
+                log.info("skipToggle set to: " + botSettings.getSkipMode());
             } else if ("!timer".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: !timer");
                 event.getMessage().delete().queue();
