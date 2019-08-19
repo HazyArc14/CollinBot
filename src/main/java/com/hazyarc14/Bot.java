@@ -37,6 +37,9 @@ public class Bot extends ListenerAdapter {
     public static final Logger log = LoggerFactory.getLogger(Bot.class);
     private BotSettings botSettings = new BotSettings();
 
+    private static final String githubAudioBaseURL = "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/";
+    private static final String githubImageBaseURL = "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/";
+
     public static void main(String[] args) throws Exception {
         JDA jda = new JDABuilder(System.getenv("BOT_TOKEN")).build();
         jda.addEventListener(new Bot());
@@ -77,9 +80,6 @@ public class Bot extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-
-        String githubAudioBaseURL = "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/audio/";
-        String githubImageBaseURL = "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/";
 
         Integer trackPosition = 0;
         String voiceChannelId = "";
@@ -548,11 +548,18 @@ public class Bot extends ListenerAdapter {
 
     }
 
-//    @Override
-//    public void onGuildVoiceJoin(GuildVoiceJoinEvent event) {
-//
-//        Guild guild = event.getGuild();
-//
+    @Override
+    public void onGuildVoiceJoin(GuildVoiceJoinEvent event) {
+
+        Guild guild = event.getGuild();
+
+        Long derpIsland = new Long("93546382438174720");
+
+        if (event.getMember().getUser().getIdLong() == derpIsland) {
+            log.info("Will Joined a VoiceChannel");
+            loadAndPlay(guild.getDefaultChannel(), event.getChannelJoined(), githubAudioBaseURL + "homie.mp3", 0);
+        }
+
 //        Long ckelsoId = new Long("93105200365043712");
 //        Long spitfire = new Long("93121331700195328");
 //        Long gopherit = new Long("93140127949287424");
@@ -572,6 +579,6 @@ public class Bot extends ListenerAdapter {
 //        if (currentVoiceChannelMembersIdList.containsAll(userIdList)) {
 //            guild.getDefaultChannel().sendMessage("Still Playing Dumbass Games!?").queue();
 //        }
-//
-//    }
+
+    }
 }
