@@ -35,6 +35,7 @@ import java.util.Map;
 
 public class Bot extends ListenerAdapter {
     public static final Logger log = LoggerFactory.getLogger(Bot.class);
+    private BotSettings botSettings = new BotSettings();
 
     public static void main(String[] args) throws Exception {
         JDA jda = new JDABuilder(System.getenv("BOT_TOKEN")).build();
@@ -111,7 +112,11 @@ public class Bot extends ListenerAdapter {
                 voiceChannel = event.getMember().getVoiceState().getChannel();
             }
 
-            if ("!timer".equalsIgnoreCase(commandList[0])) {
+            if ("!skipLock".equalsIgnoreCase(commandList[0]) && event.getAuthor().getIdLong() != 148630426548699136L) {
+                event.getMessage().delete().queue();
+                botSettings.setSkipMode(!botSettings.getSkipMode());
+                log.info("skipLock toggled: " + botSettings.getSkipMode());
+            } else if ("!timer".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: !timer");
                 event.getMessage().delete().queue();
                 createTimer(guild, event.getTextChannel(), commandList);
@@ -362,7 +367,7 @@ public class Bot extends ListenerAdapter {
                     log.info("User: " + event.getAuthor().getName() + " Command: ~play");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, commandList[1], trackPosition);
-                } else if ("~skip".equals(commandList[0])) {
+                } else if ("~skip".equals(commandList[0]) && botSettings.getSkipMode()) {
                     log.info("User: " + event.getAuthor().getName() + " Command: ~skip");
                     event.getMessage().delete().queue();
                     skipTrack(event.getTextChannel());
@@ -532,6 +537,12 @@ public class Bot extends ListenerAdapter {
                 userId = command.substring(2, command.length() - 1);
                 log.info("userId: " + userId);
             }
+
+        }
+
+        if (!userId.equalsIgnoreCase("") && !timer.equals(0)) {
+
+            log.info("HERE");
 
         }
 
