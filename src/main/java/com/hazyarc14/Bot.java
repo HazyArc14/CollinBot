@@ -20,6 +20,8 @@ import net.dv8tion.jda.core.managers.AudioManager;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -33,6 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@EnableScheduling
 public class Bot extends ListenerAdapter {
     public static final Logger log = LoggerFactory.getLogger(Bot.class);
     private BotSettings botSettings = new BotSettings();
@@ -123,7 +126,11 @@ public class Bot extends ListenerAdapter {
             } else if ("!timer".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: !timer");
                 event.getMessage().delete().queue();
-                createTimer(guild, event.getTextChannel(), commandList);
+                try {
+                    createTimer(guild, event.getTextChannel(), commandList);
+                } catch (InterruptedException e) {
+                    log.error("Exception: ", e);
+                }
             } else if ("!help".equalsIgnoreCase(commandList[0])) {
 
                 event.getMessage().delete().queue();
@@ -532,16 +539,16 @@ public class Bot extends ListenerAdapter {
 
     }
 
-    private static void createTimer(Guild guild, TextChannel textChannel, String[] commandList) {
+    private static void createTimer(Guild guild, TextChannel textChannel, String[] commandList) throws InterruptedException {
 
         String userId = "";
-        Integer timer = 0;
+        Integer timerLength = 0;
 
         for (String command: commandList) {
 
-            if (command.contains("?t=")) {
-                timer = new Integer(command.substring(command.lastIndexOf("?t=") + 3));
-                log.info("timer: " + timer);
+            if (command.contains("t=")) {
+                timerLength = new Integer(command.substring(command.lastIndexOf("t=") + 2));
+                log.info("timerLength: " + timerLength);
             }
             if (command.matches("^<@\\d*>")) {
                 userId = command.substring(2, command.length() - 1);
@@ -550,9 +557,12 @@ public class Bot extends ListenerAdapter {
 
         }
 
-        if (!userId.equalsIgnoreCase("") && !timer.equals(0)) {
+        if (!userId.equalsIgnoreCase("") && !timerLength.equals(0)) {
 
-            log.info("HERE");
+            log.info("Creating Timer Thread");
+            Thread thread = new Thread(new TimerRunnable(timerLength, new Long(userId)));
+            thread.start();
+            thread.join();
 
         }
 
