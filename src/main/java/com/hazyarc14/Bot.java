@@ -167,6 +167,8 @@ public class Bot extends ListenerAdapter {
                         "!weeee\n" +
                         "!yooo\n" +
                         "\nEmotes:\n" +
+                        ";bus;\n" +
+                        ";butterfly;\n" +
                         ";coggers;\n" +
                         ";crabPls;\n" +
                         ";dance;\n" +
@@ -181,6 +183,7 @@ public class Bot extends ListenerAdapter {
                         ";rainbowWeeb;\n" +
                         ";schubertWalk;\n" +
                         ";triKool;\n" +
+                        ";yeahNo;\n" +
                         "```";
 
 
@@ -389,6 +392,16 @@ public class Bot extends ListenerAdapter {
 
             }
 
+            if (";bus;".equalsIgnoreCase(commandList[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;bus;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "bus", githubImageBaseURL + "bus.gif");
+            }
+            if (";butterfly;".equalsIgnoreCase(commandList[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;butterfly;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "butterfly", githubImageBaseURL + "butterfly.gif");
+            }
             if (";coggers;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;coggers;");
                 event.getMessage().delete().queue();
@@ -458,6 +471,11 @@ public class Bot extends ListenerAdapter {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;triKool;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "triKool", githubImageBaseURL + "triKool.gif");
+            }
+            if (";yeahNo;".equalsIgnoreCase(commandList[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;yeahNo;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "yeahNo", githubImageBaseURL + "yeahNo.gif");
             }
 
         }
