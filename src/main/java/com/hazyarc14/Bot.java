@@ -178,12 +178,13 @@ public class Bot extends ListenerAdapter {
                         ";pepeJam;\n" +
                         ";pepeWave;\n" +
                         ";pepoDance;\n" +
+                        ";pepoLeave;\n" +
+                        ";pepoLeaveC;\n" +
                         ";pepoSabers;\n" +
                         ";ppHop;\n" +
                         ";rainbowWeeb;\n" +
                         ";schubertWalk;\n" +
                         ";triKool;\n" +
-                        ";yeahNo;\n" +
                         "```";
 
 
@@ -447,6 +448,16 @@ public class Bot extends ListenerAdapter {
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepoDance", githubImageBaseURL + "pepoDance.gif");
             }
+            if (";pepoLeave;".equalsIgnoreCase(commandList[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;pepoLeave;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoLeave", githubImageBaseURL + "pepoLeave.gif");
+            }
+            if (";pepoLeaveC;".equalsIgnoreCase(commandList[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;pepoLeaveC;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoLeaveC", githubImageBaseURL + "pepoLeaveC.gif");
+            }
             if (";pepoSabers;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepoSabers;");
                 event.getMessage().delete().queue();
@@ -471,11 +482,6 @@ public class Bot extends ListenerAdapter {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;triKool;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "triKool", githubImageBaseURL + "triKool.gif");
-            }
-            if (";yeahNo;".equalsIgnoreCase(commandList[0])) {
-                log.info("User: " + event.getAuthor().getName() + " Command: ;yeahNo;");
-                event.getMessage().delete().queue();
-                sendEmote(guild.getDefaultChannel(), "yeahNo", githubImageBaseURL + "yeahNo.gif");
             }
 
         }
