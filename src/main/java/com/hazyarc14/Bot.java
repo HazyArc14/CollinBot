@@ -7,6 +7,7 @@ import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Guild;
@@ -23,6 +24,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -484,6 +486,12 @@ public class Bot extends ListenerAdapter {
                 sendEmote(guild.getDefaultChannel(), "triKool", githubImageBaseURL + "triKool.gif");
             }
 
+            if (":emote_test:".equalsIgnoreCase(commandList[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: :emote_test:");
+                event.getMessage().delete().queue();
+                sendEmbed(guild.getDefaultChannel(), event.getAuthor().getName(), event.getAuthor().getAvatarUrl(), githubImageBaseURL + "cmonbruh.png");
+            }
+
         }
 
         super.onMessageReceived(event);
@@ -555,6 +563,18 @@ public class Bot extends ListenerAdapter {
         } catch (Exception e) {
             log.error("Error: ", e);
         }
+
+    }
+
+    private static void sendEmbed(TextChannel channel, String authorName, String authorAvatarUrl, String emoteUrl) {
+
+        EmbedBuilder eb = new EmbedBuilder();
+
+        eb.setColor(new Color(0x4AF458));
+        eb.setAuthor(authorName, null, authorAvatarUrl);
+        eb.setImage(emoteUrl);
+
+        channel.sendMessage(eb.build()).queue();
 
     }
 
