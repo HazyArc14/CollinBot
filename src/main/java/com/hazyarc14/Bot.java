@@ -333,7 +333,7 @@ public class Bot extends ListenerAdapter {
                 if ("!oil".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !oil");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "audio/oil.mp3", 0);
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "oil.mp3", 0);
                 }
                 if (event.getAuthor().getIdLong() != 93140127949287424L && "!ripDoggo".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !ripDoggo");
