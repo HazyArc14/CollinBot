@@ -138,6 +138,7 @@ public class Bot extends ListenerAdapter {
                         "!ahhha\n" +
                         "!arams\n" +
                         "!auPhau\n" +
+                        "!babyDik\n" +
                         "!boutTime\n" +
                         "!celsoHere\n" +
                         "!ckelso\n" +
@@ -210,6 +211,11 @@ public class Bot extends ListenerAdapter {
                     log.info("User: " + event.getAuthor().getName() + " Command: !auPhau");
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "auPhau.mp3", 0);
+                }
+                if ("!babyDik".equalsIgnoreCase(commandList[0])) {
+                    log.info("User: " + event.getAuthor().getName() + " Command: !babyDik");
+                    event.getMessage().delete().queue();
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "babyDik.mp3", 0);
                 }
                 if ("!boutTime".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !boutTime");
