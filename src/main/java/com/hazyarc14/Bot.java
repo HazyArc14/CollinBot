@@ -36,12 +36,6 @@ import java.util.Map;
 @EnableScheduling
 public class Bot extends ListenerAdapter {
 
-    @Value("${DATABASE_URL}")
-    private static String DATABASE_URL;
-
-    @Value("${BOT_TOKEN}")
-    private static String BOT_TOKEN;
-
     public static final Logger log = LoggerFactory.getLogger(Bot.class);
     private BotSettings botSettings = new BotSettings();
 
@@ -49,14 +43,8 @@ public class Bot extends ListenerAdapter {
     private static final String githubImageBaseURL = "https://raw.githubusercontent.com/HazyArc14/CollinBot/master/src/main/resources/images/";
 
     public static void main(String[] args) throws Exception {
-        JDA jda = new JDABuilder(BOT_TOKEN).build();
+        JDA jda = new JDABuilder(System.getenv("BOT_TOKEN")).build();
         jda.addEventListener(new Bot());
-
-        if (DATABASE_URL == null || DATABASE_URL.isEmpty()) {
-            log.info("dbUrl is empty");
-        } else {
-            log.info("dbUrl is: " + DATABASE_URL);
-        }
     }
 
     private final AudioPlayerManager playerManager;
