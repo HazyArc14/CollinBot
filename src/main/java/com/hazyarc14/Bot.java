@@ -21,7 +21,6 @@ import net.dv8tion.jda.api.managers.AudioManager;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import javax.imageio.ImageIO;
