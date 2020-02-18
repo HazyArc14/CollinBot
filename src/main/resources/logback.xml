@@ -2,4 +2,5 @@
 <configuration>
     <logger name="org.apache" level="ERROR" />
     <logger name="httpclient" level="ERROR" />
+    <logger name="com.hazyarc14" level="DEBUG" />
 </configuration>
