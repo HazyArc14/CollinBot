@@ -11,10 +11,12 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceJoinEvent;
+import net.dv8tion.jda.api.events.guild.voice.GuildVoiceMoveEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.managers.AudioManager;
@@ -96,6 +98,11 @@ public class Bot extends ListenerAdapter {
                 voiceChannelId = command.substring(command.lastIndexOf("$vc") + 3);
                 log.info("voiceChannelId: " + voiceChannelId);
             }
+            if (command.contains("$f")) {
+                Long userId = new Long(command.substring(command.lastIndexOf("$f") + 2));
+                botSettings.setVoiceFollowMode(true);
+                botSettings.setVoiceFollowUserId(userId);
+            }
         }
 
         Guild guild = event.getGuild();
@@ -113,7 +120,12 @@ public class Bot extends ListenerAdapter {
                 voiceChannel = event.getMember().getVoiceState().getChannel();
             }
 
-            if ("!voiceActionToggle".equalsIgnoreCase(commandList[0]) && event.getAuthor().getIdLong() == 148630426548699136L) {
+            if ("!follow".equalsIgnoreCase(commandList[0]) && event.getAuthor().getIdLong() == 148630426548699136L) {
+                event.getMessage().delete().queue();
+                botSettings.setVoiceFollowMode(false);
+                botSettings.setVoiceFollowUserId(null);
+                log.info("follow mode off");
+            } else if ("!voiceActionToggle".equalsIgnoreCase(commandList[0]) && event.getAuthor().getIdLong() == 148630426548699136L) {
                 event.getMessage().delete().queue();
                 botSettings.setVoiceJoinActions(!botSettings.getVoiceJoinActions());
                 log.info("voiceActionToggle set to: " + botSettings.getVoiceJoinActions());
@@ -493,12 +505,6 @@ public class Bot extends ListenerAdapter {
                 sendEmote(guild.getDefaultChannel(), "triKool", githubImageBaseURL + "triKool.gif");
             }
 
-            if (":emote_test:".equalsIgnoreCase(commandList[0])) {
-                log.info("User: " + event.getAuthor().getName() + " Command: :emote_test:");
-                event.getMessage().delete().queue();
-                sendEmbed(guild.getDefaultChannel(), event.getAuthor().getName(), event.getAuthor().getAvatarUrl(), githubImageBaseURL + "cmonbruh.png");
-            }
-
         }
 
         super.onMessageReceived(event);
@@ -615,9 +621,34 @@ public class Bot extends ListenerAdapter {
     }
 
     @Override
+    public void onGuildVoiceMove(GuildVoiceMoveEvent event) {
+
+        Guild guild = event.getGuild();
+        AudioManager audioManager = guild.getAudioManager();
+        Long userMoveId = event.getMember().getUser().getIdLong();
+
+        if (audioManager.isConnected() && botSettings.getVoiceFollowMode() && (userMoveId == botSettings.getVoiceFollowUserId())) {
+
+            VoiceChannel channelJoined = event.getChannelJoined();
+            guild.moveVoiceMember(guild.getMemberById(469639004078211072L), channelJoined);
+
+        }
+
+    }
+
+    @Override
     public void onGuildVoiceJoin(GuildVoiceJoinEvent event) {
 
         Guild guild = event.getGuild();
+        AudioManager audioManager = guild.getAudioManager();
+        Long userMoveId = event.getMember().getUser().getIdLong();
+
+        if (audioManager.isConnected() && botSettings.getVoiceFollowMode() && (userMoveId == botSettings.getVoiceFollowUserId())) {
+
+            VoiceChannel channelJoined = event.getChannelJoined();
+            guild.moveVoiceMember(guild.getMemberById(469639004078211072L), channelJoined);
+
+        }
 
         Long ckelsoId = new Long("93105200365043712");
         Long derpIsland = new Long("93546382438174720");
