@@ -21,6 +21,7 @@ import net.dv8tion.jda.api.managers.AudioManager;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import javax.imageio.ImageIO;
@@ -34,6 +35,10 @@ import java.util.Map;
 
 @EnableScheduling
 public class Bot extends ListenerAdapter {
+
+    @Value("${spring.datasource.url}")
+    private static String dbUrl;
+
     public static final Logger log = LoggerFactory.getLogger(Bot.class);
     private BotSettings botSettings = new BotSettings();
 
@@ -43,6 +48,12 @@ public class Bot extends ListenerAdapter {
     public static void main(String[] args) throws Exception {
         JDA jda = new JDABuilder(System.getenv("BOT_TOKEN")).build();
         jda.addEventListener(new Bot());
+
+        if (dbUrl == null || dbUrl.isEmpty()) {
+            log.info("dbUrl is empty");
+        } else {
+            log.info("dbUrl is: " + dbUrl);
+        }
     }
 
     private final AudioPlayerManager playerManager;
