@@ -193,6 +193,7 @@ public class Bot extends ListenerAdapter {
                         ";pepeGun;\n" +
                         ";pepeJam;\n" +
                         ";pepeWave;\n" +
+                        ";pepoBed;\n" +
                         ";pepoDance;\n" +
                         ";pepoLeave;\n" +
                         ";pepoLeaveC;\n" +
