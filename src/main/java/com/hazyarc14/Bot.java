@@ -464,6 +464,11 @@ public class Bot extends ListenerAdapter {
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepeWave", githubImageBaseURL + "pepeWave.gif");
             }
+            if (";pepoBed;".equalsIgnoreCase(commandList[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;pepoBed;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoBed", githubImageBaseURL + "pepoBed.gif");
+            }
             if (";pepoDance;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepoDance;");
                 event.getMessage().delete().queue();
