@@ -172,6 +172,7 @@ public class Bot extends ListenerAdapter {
                         "!lilBitchAss\n" +
                         "!magicResit\n" +
                         "!meetYa\n" +
+                        "!monkeyDik\n" +
                         "!monkeys\n" +
                         "!oil\n" +
                         "!ripDoggo\n" +
@@ -333,10 +334,10 @@ public class Bot extends ListenerAdapter {
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "meetYa.mp3", 0);
                 }
-                if ("!monkey".equalsIgnoreCase(commandList[0])) {
-                    log.info("User: " + event.getAuthor().getName() + " Command: !monkey");
+                if ("!monkeyDik".equalsIgnoreCase(commandList[0])) {
+                    log.info("User: " + event.getAuthor().getName() + " Command: !monkeyDik");
                     event.getMessage().delete().queue();
-                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "monkeys.mp3", 0);
+                    loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "monkeyDik.mp3", 0);
                 }
                 if ("!monkeys".equalsIgnoreCase(commandList[0])) {
                     log.info("User: " + event.getAuthor().getName() + " Command: !monkeys");
