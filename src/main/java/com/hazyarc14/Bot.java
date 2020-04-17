@@ -198,6 +198,7 @@ public class Bot extends ListenerAdapter {
                         ";pepoLeave;\n" +
                         ";pepoLeaveC;\n" +
                         ";pepoSabers;\n" +
+                        ";pepoSalami;\n" +
                         ";ppHop;\n" +
                         ";rainbowWeeb;\n" +
                         ";schubertWalk;\n" +
@@ -489,6 +490,11 @@ public class Bot extends ListenerAdapter {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;pepoSabers;");
                 event.getMessage().delete().queue();
                 sendEmote(guild.getDefaultChannel(), "pepoSabers", githubImageBaseURL + "pepoSabers.gif");
+            }
+            if (";pepoSalami;".equalsIgnoreCase(commandList[0])) {
+                log.info("User: " + event.getAuthor().getName() + " Command: ;pepoSalami;");
+                event.getMessage().delete().queue();
+                sendEmote(guild.getDefaultChannel(), "pepoSalami", githubImageBaseURL + "pepoSalami.gif");
             }
             if (";ppHop;".equalsIgnoreCase(commandList[0])) {
                 log.info("User: " + event.getAuthor().getName() + " Command: ;ppHop;");
