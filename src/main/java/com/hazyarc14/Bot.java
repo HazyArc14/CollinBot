@@ -10,14 +10,12 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.TextChannel;
-import net.dv8tion.jda.api.entities.VoiceChannel;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceJoinEvent;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceMoveEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.priv.PrivateMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.managers.AudioManager;
 import org.apache.commons.io.FileUtils;
@@ -78,6 +76,25 @@ public class Bot extends ListenerAdapter {
 
         log.info("Set base role for new user " + event.getUser().getName());
         event.getGuild().addRoleToMember(event.getMember(), event.getJDA().getRoleById("478762864530817036")).complete();
+
+    }
+
+    @Override
+    public void onPrivateMessageReceived(PrivateMessageReceivedEvent event) {
+        //Member author = event.getMember(); //User who sent message, member of guild
+        User author = event.getAuthor();
+        MessageChannel channel = event.getChannel();
+        Message message = event.getMessage(); //Message recieved
+        String msg = message.getContentDisplay().trim().toLowerCase(); // String readable content of message
+
+        log.info(author + " sent message: " + message);
+
+        if (event.getAuthor().equals(event.getJDA().getSelfUser())) {
+            //Don't reply to ourselves
+            return;
+        }
+
+        channel.sendMessage("Hello, " + author + "!").queue();
 
     }
 
