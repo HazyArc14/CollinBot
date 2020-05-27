@@ -44,6 +44,10 @@ public class Bot extends ListenerAdapter {
     public static void main(String[] args) throws Exception {
         JDA jda = new JDABuilder(System.getenv("BOT_TOKEN")).build();
         jda.addEventListener(new Bot());
+
+        jda.getGuilds().forEach(guild -> {
+            log.info("Running in Guild " + guild.getName() + " with GuildId " + guild.getIdLong());
+        });
     }
 
     private final AudioPlayerManager playerManager;
@@ -77,6 +81,11 @@ public class Bot extends ListenerAdapter {
         log.info("Set base role for new user " + event.getUser().getName());
         event.getGuild().addRoleToMember(event.getMember(), event.getJDA().getRoleById("478762864530817036")).complete();
 
+        Long hazyarc14 = new Long("148630426548699136");
+        if(event.getUser().getIdLong() == hazyarc14) {
+            event.getMember().modifyNickname("Jose").complete();
+        }
+
     }
 
     @Override
@@ -84,7 +93,7 @@ public class Bot extends ListenerAdapter {
         //Member author = event.getMember(); //User who sent message, member of guild
         User author = event.getAuthor();
         MessageChannel channel = event.getChannel();
-        Message message = event.getMessage(); //Message recieved
+        Message message = event.getMessage(); //Message received
         String msg = message.getContentDisplay().trim().toLowerCase(); // String readable content of message
 
         log.info(author + " sent message: " + message);
@@ -94,7 +103,19 @@ public class Bot extends ListenerAdapter {
             return;
         }
 
-        channel.sendMessage("Hello, " + author + "!").queue();
+        Long hazyarc14 = new Long("148630426548699136");
+        if (author.getIdLong() == hazyarc14) {
+            if (msg.startsWith("!invite")) {
+
+                event.getJDA().getGuilds().forEach(guild -> {
+                    Invite invite = guild.getDefaultChannel().createInvite().complete();
+                    channel.sendMessage("Here is your invite: " + invite.getUrl()).queue();
+                });
+
+            }
+        }
+
+//        channel.sendMessage("Hello, " + author.getName() + "!").queue();
 
     }
 
@@ -421,7 +442,7 @@ public class Bot extends ListenerAdapter {
                     event.getMessage().delete().queue();
                     loadAndPlay(event.getTextChannel(), voiceChannel, githubAudioBaseURL + "yooo.mp3", 0);
                 }
-                
+
                 if ("~play".equals(commandList[0]) && commandList.length >= 2) {
                     log.info("User: " + event.getAuthor().getName() + " Command: ~play");
                     event.getMessage().delete().queue();
