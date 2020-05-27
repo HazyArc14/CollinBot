@@ -46,7 +46,7 @@ public class Bot extends ListenerAdapter {
         jda.addEventListener(new Bot());
 
         jda.getGuilds().forEach(guild -> {
-            log.info("Running in Guild " + guild.getName() + " with GuildId " + guild.getIdLong());
+            System.out.println("Running in Guild " + guild.getName() + " with GuildId " + guild.getIdLong());
         });
     }
 
