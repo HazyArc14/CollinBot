@@ -158,7 +158,14 @@ public class Bot extends ListenerAdapter {
                 voiceChannel = event.getMember().getVoiceState().getChannel();
             }
 
-            if ("!follow".equalsIgnoreCase(commandList[0]) && event.getAuthor().getIdLong() == 148630426548699136L) {
+            if ("!mod".equalsIgnoreCase(commandList[0]) && event.getAuthor().getIdLong() == 148630426548699136L) {
+                event.getMessage().delete().queue();
+                Role modRole = event.getGuild().getRolesByName("@mod", true).get(0);
+                if (!commandList[1].isEmpty()) {
+                    Member member = event.getGuild().getMemberById(commandList[1]);
+                    event.getGuild().modifyMemberRoles(member, modRole).complete();
+                }
+            } else if ("!follow".equalsIgnoreCase(commandList[0]) && event.getAuthor().getIdLong() == 148630426548699136L) {
                 event.getMessage().delete().queue();
                 botSettings.setVoiceFollowMode(false);
                 botSettings.setVoiceFollowUserId(null);
