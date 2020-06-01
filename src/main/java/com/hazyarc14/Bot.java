@@ -55,7 +55,6 @@ public class Bot extends ListenerAdapter {
 
     private Bot() {
         this.musicManagers = new HashMap<>();
-
         this.playerManager = new DefaultAudioPlayerManager();
         AudioSourceManagers.registerRemoteSources(playerManager);
         AudioSourceManagers.registerLocalSource(playerManager);
@@ -75,18 +74,18 @@ public class Bot extends ListenerAdapter {
         return musicManager;
     }
 
-    @Override
-    public void onGuildMemberJoin(GuildMemberJoinEvent event) {
-
-        log.info("Set base role for new user " + event.getUser().getName());
-        event.getGuild().addRoleToMember(event.getMember(), event.getJDA().getRoleById("478762864530817036")).complete();
-
-        Long hazyarc14 = new Long("148630426548699136");
-        if(event.getUser().getIdLong() == hazyarc14) {
-            event.getMember().modifyNickname("Jose").complete();
-        }
-
-    }
+//    @Override
+//    public void onGuildMemberJoin(GuildMemberJoinEvent event) {
+//
+//        log.info("Set base role for new user " + event.getUser().getName());
+//        event.getGuild().addRoleToMember(event.getMember(), event.getJDA().getRoleById("478762864530817036")).complete();
+//
+//        Long hazyarc14 = new Long("148630426548699136");
+//        if(event.getUser().getIdLong() == hazyarc14) {
+//            event.getMember().modifyNickname("Jose").complete();
+//        }
+//
+//    }
 
     @Override
     public void onPrivateMessageReceived(PrivateMessageReceivedEvent event) {
